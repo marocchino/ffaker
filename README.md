@@ -1,16 +1,16 @@
 # Ffaker
 
-**TODO: Add description**
+elixir porting of <https://github.com/ffaker/ffaker>
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+The package can be installed as:
 
   1. Add `ffaker` to your list of dependencies in `mix.exs`:
 
     ```elixir
     def deps do
-      [{:ffaker, "~> 0.1.0"}]
+      [{:ffaker, "~> 0.0.1"}]
     end
     ```
 

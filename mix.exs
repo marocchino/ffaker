@@ -3,30 +3,34 @@ defmodule Ffaker.Mixfile do
 
   def project do
     [app: :ffaker,
-     version: "0.1.0",
+     version: "0.0.1",
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps()]
+     deps: deps(),
+     package: package(),
+     description: description()]
   end
 
-  # Configuration for the OTP application
-  #
-  # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger]]
+    []
   end
 
-  # Dependencies can be Hex packages:
-  #
-  #   {:mydep, "~> 0.3.0"}
-  #
-  # Or git/path repositories:
-  #
-  #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
-  #
-  # Type "mix help deps" for more examples and options
   defp deps do
     []
+  end
+
+  defp description do
+    """
+    elixir porting of https://github.com/ffaker/ffaker
+    """
+  end
+
+  defp package do
+    [name: :ffaker,
+     files: ["lib", "data", "mix.exs", "README.md", "LICENSE"],
+     maintainers: ["marocchino"],
+     licenses: ["MIT"],
+     links: %{"GitHub" => "https://github.com/marocchino/ffaker"}]
   end
 end
