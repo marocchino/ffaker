@@ -1,8 +1,13 @@
 defmodule FfakerTest do
   use ExUnit.Case, async: true
   doctest Ffaker
+  import Ffaker
 
-  test "the truth" do
-    assert 1 + 1 == 2
+  test "random/1" do
+    assert random(1..1000) == Ffaker.random(1..1000)
+  end
+
+  test "list_file/1" do
+    assert list_file("test/data/number") == ~w(1 2 3)
   end
 end

@@ -1,6 +1,7 @@
 defmodule Ffaker.En.NameTest do
   use ExUnit.Case, async: true
   doctest Ffaker.En.Name
+  import Ffaker
   import Ffaker.En.Name
 
   test "name/0" do
@@ -34,12 +35,4 @@ defmodule Ffaker.En.NameTest do
     assert last_name in last_names
   end
 
-  defp list_file(file_name) do
-    case File.read(file_name) do
-      {:ok, res} ->
-        res
-        |> String.split("\n")
-      {:error, info} -> raise info
-    end
-  end
 end

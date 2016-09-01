@@ -1,4 +1,5 @@
 defmodule Ffaker.En.Name do
+  import Ffaker
   @moduledoc """
   Functions for name data in English
   """
@@ -16,7 +17,7 @@ defmodule Ffaker.En.Name do
   """
   @spec first_name() :: String.t
   def first_name do
-    case Enum.random(0..1) do
+    case random(0..1) do
       1 -> first_name_female
       _ -> first_name_male
     end
@@ -27,7 +28,8 @@ defmodule Ffaker.En.Name do
   """
   @spec first_name_male() :: String.t
   def first_name_male do
-    rand_file("data/en/name/first_names_male")
+    list_file("data/en/name/first_names_male")
+    |> random
   end
 
   @doc """
@@ -35,7 +37,8 @@ defmodule Ffaker.En.Name do
   """
   @spec first_name_female() :: String.t
   def first_name_female do
-    rand_file("data/en/name/first_names_female")
+    list_file("data/en/name/first_names_female")
+    |> random
   end
 
   @doc """
@@ -43,19 +46,8 @@ defmodule Ffaker.En.Name do
   """
   @spec last_name() :: String.t
   def last_name do
-    rand_file("data/en/name/last_names")
+    list_file("data/en/name/last_names")
+    |> random
   end
 
-  @spec rand_file(String.t) :: String.t
-  defp rand_file(file_name) do
-    s = ExUnit.configuration |> Keyword.get(:seed)
-    :rand.seed(:exsplus, { s, s, s })
-    case File.read(file_name) do
-      {:ok, res} ->
-        res
-        |> String.split("\n")
-        |> Enum.random
-      {:error, info} -> raise info
-    end
-  end
 end
