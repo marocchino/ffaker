@@ -48,6 +48,8 @@ defmodule Ffaker.En.Name do
 
   @spec rand_file(String.t) :: String.t
   defp rand_file(file_name) do
+    s = ExUnit.configuration |> Keyword.get(:seed)
+    :rand.seed(:exsplus, { s, s, s })
     case File.read(file_name) do
       {:ok, res} ->
         res
