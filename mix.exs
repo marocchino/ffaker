@@ -9,6 +9,8 @@ defmodule Ffaker.Mixfile do
      start_permanent: Mix.env == :prod,
      deps: deps(),
      package: package(),
+     test_coverage: [tool: ExCoveralls],
+     preferred_cli_env: ["coveralls": :test, "coveralls.detail": :test, "coveralls.post": :test, "coveralls.html": :test],
      description: description()]
   end
 
@@ -17,7 +19,7 @@ defmodule Ffaker.Mixfile do
   end
 
   defp deps do
-    []
+    [{:excoveralls, "~> 0.5.6", only: :test}]
   end
 
   defp description do

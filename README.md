@@ -1,6 +1,7 @@
 # Ffaker
 
 [![Build Status](https://travis-ci.org/marocchino/ffaker.svg?branch=master)](https://travis-ci.org/marocchino/ffaker)
+[![Coverage Status](https://coveralls.io/repos/github/marocchino/ffaker/badge.svg?branch=master)](https://coveralls.io/github/marocchino/ffaker?branch=master)
 
 elixir porting of <https://github.com/ffaker/ffaker>
 
