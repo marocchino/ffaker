@@ -17,8 +17,7 @@ defmodule Ffaker do
   """
   @spec random(Enum.t) :: String.t
   def random(list) do
-    s = ExUnit.configuration
-        |> Keyword.get(:seed)
+    s = Keyword.get(ExUnit.configuration, :seed) || elem(:os.timestamp, 2)
     :rand.seed(:exsplus, { s, s, s })
     Enum.random(list)
   end
