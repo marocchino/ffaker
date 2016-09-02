@@ -28,7 +28,7 @@ defmodule Ffaker.En.Name do
   """
   @spec first_name() :: String.t
   def first_name do
-    random(0..1) == 0 && female_first_name || male_first_name
+    Ffaker.En.Gender.female? && female_first_name || male_first_name
   end
 
   @doc """
@@ -73,9 +73,9 @@ defmodule Ffaker.En.Name do
   """
   @spec prefix() :: String.t
   def prefix do
-    case random(0..2) do
-       0 -> female_prefix
-       1 -> male_prefix
+    case Ffaker.En.Gender.gender do
+       "female" -> female_prefix
+       "male" -> male_prefix
        _ -> other_prefix
     end
   end
