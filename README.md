@@ -1,5 +1,6 @@
 # Ffaker
 
+[![hex.pm version](https://img.shields.io/hexpm/v/ffaker.svg)](https://hex.pm/packages/ffaker)
 [![Build Status](https://travis-ci.org/marocchino/ffaker.svg?branch=master)](https://travis-ci.org/marocchino/ffaker)
 [![Coverage Status](https://coveralls.io/repos/github/marocchino/ffaker/badge.svg?branch=master)](https://coveralls.io/github/marocchino/ffaker?branch=master)
 
