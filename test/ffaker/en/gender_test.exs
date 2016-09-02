@@ -9,9 +9,18 @@ defmodule Ffaker.En.GenderTest do
 
   test "female?/0, male?/0, unknown?/0" do
     case gender do
-       "female" -> assert female?
-       "male" -> assert male?
-       _ -> assert unknown?
+       "female" ->
+         assert female?
+         refute male?
+         refute unknown?
+       "male" ->
+         refute female?
+         assert male?
+         refute unknown?
+       _ ->
+         refute female?
+         refute male?
+         assert unknown?
     end
   end
 end
