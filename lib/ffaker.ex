@@ -24,7 +24,7 @@ defmodule Ffaker do
         res
         |> String.trim
         |> String.split("\n")
-      {:error, info} -> raise info
+      {:error, _} -> raise RuntimeError, message: "#{file_name} not found"
     end
   end
 end
