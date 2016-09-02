@@ -1,5 +1,7 @@
 # Ffaker
 
+[![Build Status](https://travis-ci.org/marocchino/ffaker.svg?branch=master)](https://travis-ci.org/marocchino/ffaker)
+
 elixir porting of <https://github.com/ffaker/ffaker>
 
 ## Installation
