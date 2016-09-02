@@ -1,6 +1,6 @@
 defmodule Ffaker.En.NameTest do
   use ExUnit.Case, async: true
-  import Ffaker
+  import Ffaker, only: [list_file: 1]
   import Ffaker.En.Name
 
   test "name/0" do
@@ -15,7 +15,6 @@ defmodule Ffaker.En.NameTest do
 
   test "html_safe_name/0" do
     [first_name, last_name] = String.split(html_safe_name, " ")
-
     last_names = list_file("data/en/name/last_names")
     first_names = list_file("data/en/name/first_names_male") ++
       list_file("data/en/name/first_names_female")
@@ -48,7 +47,7 @@ defmodule Ffaker.En.NameTest do
   test "html_safe_last_name/0" do
     last_names = list_file("data/en/name/last_names")
     assert html_safe_last_name in last_names
-    refute String.contains?(last_name, "'")
+    refute String.contains?(html_safe_last_name, "'")
   end
 
   test "prefix/0" do
