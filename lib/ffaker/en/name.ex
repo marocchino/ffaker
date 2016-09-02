@@ -9,6 +9,11 @@ defmodule Ffaker.En.Name do
 
   @doc """
   Returns name
+
+  ## Examples
+
+      iex> Ffaker.En.Name.name
+      "Joe Bogan"
   """
   @spec name() :: String.t
   def name do
@@ -17,6 +22,11 @@ defmodule Ffaker.En.Name do
 
   @doc """
   Returns html safe name
+
+  ## Examples
+
+      iex> Ffaker.En.Name.html_safe_name
+      "Joe Bogan"
   """
   @spec html_safe_name() :: String.t
   def html_safe_name do
@@ -25,6 +35,11 @@ defmodule Ffaker.En.Name do
 
   @doc """
   Returns first name
+
+  ## Examples
+
+      iex> Ffaker.En.Name.first_name
+      "Joe"
   """
   @spec first_name() :: String.t
   def first_name do
@@ -33,6 +48,11 @@ defmodule Ffaker.En.Name do
 
   @doc """
   Returns male first name
+
+  ## Examples
+
+      iex> Ffaker.En.Name.male_first_name
+      "Joe"
   """
   @spec male_first_name() :: String.t
   def male_first_name do
@@ -42,6 +62,11 @@ defmodule Ffaker.En.Name do
 
   @doc """
   Returns female first name
+
+  ## Examples
+
+      iex> Ffaker.En.Name.female_first_name
+      "Alice"
   """
   @spec female_first_name() :: String.t
   def female_first_name do
@@ -51,6 +76,11 @@ defmodule Ffaker.En.Name do
 
   @doc """
   Returns last name
+
+  ## Examples
+
+      iex> Ffaker.En.Name.last_name
+      "Bogan"
   """
   @spec last_name() :: String.t
   def last_name do
@@ -60,6 +90,11 @@ defmodule Ffaker.En.Name do
 
   @doc """
   Returns html safe last name
+
+  ## Examples
+
+      iex> Ffaker.En.Name.html_safe_last_name
+      "Bogan"
   """
   @spec html_safe_last_name() :: String.t
   def html_safe_last_name do
@@ -70,6 +105,11 @@ defmodule Ffaker.En.Name do
 
   @doc """
   Returns prefix
+
+  ## Examples
+
+      iex> Ffaker.En.Name.prefix
+      "Miss."
   """
   @spec prefix() :: String.t
   def prefix do
@@ -82,6 +122,11 @@ defmodule Ffaker.En.Name do
 
   @doc """
   Returns male prefix
+
+  ## Examples
+
+      iex> Ffaker.En.Name.male_prefix
+      "Mr."
   """
   @spec male_prefix() :: String.t
   def male_prefix do
@@ -90,6 +135,11 @@ defmodule Ffaker.En.Name do
 
   @doc """
   Returns female prefix
+
+  ## Examples
+
+      iex> Ffaker.En.Name.female_prefix
+      "Miss."
   """
   @spec female_prefix() :: String.t
   def female_prefix do
@@ -99,6 +149,11 @@ defmodule Ffaker.En.Name do
 
   @doc """
   Returns gender neutral prefix
+
+  ## Examples
+
+      iex> Ffaker.En.Name.other_prefix
+      "Dr."
   """
   @spec other_prefix() :: String.t
   def other_prefix do
@@ -108,6 +163,11 @@ defmodule Ffaker.En.Name do
 
   @doc """
   Returns suffix
+
+  ## Examples
+
+      iex> Ffaker.En.Name.suffix
+      "Jr."
   """
   @spec suffix() :: String.t
   def suffix do

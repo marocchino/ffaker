@@ -1,5 +1,5 @@
 defmodule Ffaker.En.Gender do
-  import Ffaker
+  import Ffaker, only: [random: 1]
   @moduledoc """
   Functions for gender data in English
   """
@@ -7,6 +7,11 @@ defmodule Ffaker.En.Gender do
 
   @doc """
   Returns gender
+
+  ## Examples
+
+      iex> Ffaker.En.Gender.gender
+      "female"
   """
   @spec gender() :: String.t
   def gender do
@@ -16,6 +21,11 @@ defmodule Ffaker.En.Gender do
 
   @doc """
   Returns true if gender is female
+
+  ## Examples
+
+      iex> Ffaker.En.Gender.female?
+      true
   """
   @spec female?() :: boolean
   def female? do
@@ -24,6 +34,11 @@ defmodule Ffaker.En.Gender do
 
   @doc """
   Returns true if gender is male
+
+  ## Examples
+
+      iex> Ffaker.En.Gender.male?
+      false
   """
   @spec male?() :: boolean
   def male? do
@@ -32,6 +47,11 @@ defmodule Ffaker.En.Gender do
 
   @doc """
   Returns true if gender is unknown
+
+  ## Examples
+
+      iex> Ffaker.En.Gender.unknown?
+      false
   """
   @spec unknown?() :: boolean
   def unknown? do

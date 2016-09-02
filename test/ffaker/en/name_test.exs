@@ -1,6 +1,5 @@
 defmodule Ffaker.En.NameTest do
   use ExUnit.Case, async: true
-  doctest Ffaker.En.Name
   import Ffaker
   import Ffaker.En.Name
 

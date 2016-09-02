@@ -1,6 +1,5 @@
 defmodule Ffaker.En.GenderTest do
   use ExUnit.Case, async: true
-  doctest Ffaker.En.Gender
   import Ffaker.En.Gender
 
   test "gender/0" do

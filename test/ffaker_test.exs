@@ -1,6 +1,5 @@
 defmodule FfakerTest do
   use ExUnit.Case, async: true
-  doctest Ffaker
   import Ffaker
 
   test "random/1" do
