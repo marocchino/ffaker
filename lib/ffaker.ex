@@ -6,19 +6,16 @@ defmodule Ffaker do
   @doc """
   random by ExTest seed
 
-  It returns same value in same seed.
+  It returns random element
 
   ## Examples
 
       iex> Ffaker.random(0..100)
       12
-      iex> Ffaker.random(0..100)
-      12
   """
-  @spec random(Enum.t) :: String.t
+  @spec random(Enum.t) :: any
   def random(list) do
-    s = Keyword.get(ExUnit.configuration, :seed) || elem(:os.timestamp, 2)
-    :rand.seed(:exsplus, { s, s, s })
+    Ffaker.Seed.next
     Enum.random(list)
   end
 

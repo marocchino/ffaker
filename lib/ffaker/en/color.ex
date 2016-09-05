@@ -55,7 +55,7 @@ defmodule Ffaker.En.Color do
   ## Examples
 
       iex> Ffaker.En.Color.hsl
-      [310, 12%, 34%]
+      [310, "12%", "34%"]
   """
   @spec hsl() :: Enum.t
   def hsl do
@@ -85,7 +85,7 @@ defmodule Ffaker.En.Color do
   ## Examples
 
       iex> Ffaker.En.Color.hsl
-      [310, 12%, 34%, 0.98]
+      [310, "12%", "34%", 0.98]
   """
   @spec hsla() :: Enum.t
   def hsla do

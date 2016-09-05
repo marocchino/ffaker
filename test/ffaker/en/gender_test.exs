@@ -6,20 +6,15 @@ defmodule Ffaker.En.GenderTest do
     assert gender in ~w(female male unknown)
   end
 
-  test "female?/0, male?/0, unknown?/0" do
-    case gender do
-       "female" ->
-         assert female?
-         refute male?
-         refute unknown?
-       "male" ->
-         refute female?
-         assert male?
-         refute unknown?
-       _ ->
-         refute female?
-         refute male?
-         assert unknown?
-    end
+  test "female?/0" do
+    assert female? in [true, false]
+  end
+
+  test "male?/0" do
+    assert male? in [true, false]
+  end
+
+  test "unknown?/0" do
+    assert unknown? in [true, false]
   end
 end
