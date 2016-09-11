@@ -1,4 +1,5 @@
 defmodule Ffaker do
+  alias Ffaker.Seed
   @moduledoc """
   Common modules
   """
@@ -15,7 +16,7 @@ defmodule Ffaker do
   """
   @spec random(Enum.t) :: any | no_return
   def random(enumerable) do
-    Ffaker.Seed.next
+    Seed.next
     Enum.random(enumerable)
   end
 

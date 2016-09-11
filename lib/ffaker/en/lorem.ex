@@ -14,7 +14,10 @@ defmodule Ffaker.En.Lorem do
   ## Examples
 
       iex> Ffaker.En.Lorem.characters
-      "g5nn5wbqp3t748bivku9o6w8wjgw7ngsj9efprdweidqyccu37x6yuwb07kbfb9sntz085kej2sxcxolm2k55zb9pwtyik90seavo8i6hn15x51n79htv8oemmnufb7wq1cgo6t72gzgb5l1j3ztm3crbm3ex5vcg8p0mk6cgtyfkysgmwqtisvbf85r776ddkylwus7jffilukfdga6godyi5p2s4w1vz8tidq7dhvr6wke8u49vw59wygrjny"
+      "g5nn5wbqp3t748bivku9o6w8wjgw7ngsj9efprdweidqyccu37x6yuwb07kbfb9sntz08" <>
+      "5kej2sxcxolm2k55zb9pwtyik90seavo8i6hn15x51n79htv8oemmnufb7wq1cgo6t72g" <>
+      "zgb5l1j3ztm3crbm3ex5vcg8p0mk6cgtyfkysgmwqtisvbf85r776ddkylwus7jffiluk" <>
+      "fdga6godyi5p2s4w1vz8tidq7dhvr6wke8u49vw59wygrjny"
       iex> Ffaker.En.Lorem.characters(3)
       "abc"
   """
@@ -36,7 +39,8 @@ defmodule Ffaker.En.Lorem do
   """
   @spec word :: String.t
   def word do
-    list_file("data/en/lorem/words")
+    "data/en/lorem/words"
+    |> list_file
     |> random
   end
 
@@ -73,7 +77,9 @@ defmodule Ffaker.En.Lorem do
   ## Examples
 
       iex> Ffaker.En.Lorem.sentence
-      "Consequatur reiciendis dicta et exercitationem quod voluptatibus. Unde dolorem aut eius corporis aperiam. Quis rem dolorem fugit consequatur dolorem."
+      "Consequatur reiciendis dicta et exercitationem quod voluptatibus. " <>
+      "Unde dolorem aut eius corporis aperiam. " <>
+      "Quis rem dolorem fugit consequatur dolorem."
   """
   @spec paragraph(Enum.t) :: String.t
   def paragraph(sentences_range \\ 3..6) do

@@ -15,7 +15,8 @@ defmodule Ffaker.En.Color do
   """
   @spec name() :: String.t
   def name do
-    list_file("data/en/color/names")
+    "data/en/color/names"
+    |> list_file
     |> random
   end
 
@@ -60,8 +61,8 @@ defmodule Ffaker.En.Color do
   @spec hsl() :: Enum.t
   def hsl do
     h = random(0..360)
-    s = "#{random(0..1000) |> div(10)}%"
-    l = "#{random(0..10000) |> div(100)}%"
+    s = "#{div(random(0..1000), 10)}%"
+    l = "#{div(random(0..10000), 100)}%"
     [h, s, l]
   end
 

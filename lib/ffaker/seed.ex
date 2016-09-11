@@ -32,7 +32,7 @@ defmodule Ffaker.Seed do
   @spec next() :: number
   def next do
     s = seed + 1
-    :rand.seed(:exsplus, { s, s, s })
+    :rand.seed(:exsplus, {s, s, s})
     ExUnit.configure ffaker_seed: s
   end
 

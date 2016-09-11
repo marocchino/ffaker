@@ -20,6 +20,7 @@ defmodule Ffaker.Mixfile do
 
   defp deps do
     [{:excoveralls, "~> 0.5.6", only: :test},
+     {:credo, "~> 0.4", only: [:dev, :test]},
      {:earmark, "~> 0.1", only: :dev},
      {:ex_doc, "~> 0.11", only: :dev}]
   end

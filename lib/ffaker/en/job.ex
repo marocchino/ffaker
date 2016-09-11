@@ -30,7 +30,8 @@ defmodule Ffaker.En.Job do
   """
   @spec prefix() :: String.t
   def prefix do
-    list_file("data/en/job/prefixes")
+    "data/en/job/prefixes"
+    |> list_file
     |> random
   end
 
@@ -44,7 +45,8 @@ defmodule Ffaker.En.Job do
   """
   @spec adj() :: String.t
   def adj do
-    list_file("data/en/job/adjs")
+    "data/en/job/adjs"
+    |> list_file
     |> random
   end
 
@@ -58,7 +60,8 @@ defmodule Ffaker.En.Job do
   """
   @spec noun() :: String.t
   def noun do
-    list_file("data/en/job/nouns")
+    "data/en/job/nouns"
+    |> list_file
     |> random
   end
 end
