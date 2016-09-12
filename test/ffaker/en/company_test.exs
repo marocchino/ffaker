@@ -5,7 +5,7 @@ defmodule Ffaker.En.CompanyTest do
 
   test "name/0" do
     n = name
-    assert Regex.match?(~r{\A[\w', -]+\z}, n), "#{n} is not matched"
+    assert Regex.match?(~r/\A[\w', -]+\z}, n/, "#{n} is not matched"
   end
 
   test "suffix/0" do

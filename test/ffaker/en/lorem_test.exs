@@ -14,7 +14,7 @@ defmodule Ffaker.En.LoremTest do
   end
 
   test "sentence/1" do
-    assert Regex.match?(~r(\A[A-Z][a-z ]+\.\z), sentence)
+    assert Regex.match?(~r/\A[A-Z][a-z ]+\.\z/, sentence)
   end
 
   test "paragraph/1" do
