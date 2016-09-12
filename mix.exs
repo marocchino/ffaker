@@ -11,11 +11,16 @@ defmodule Ffaker.Mixfile do
      package: package(),
      test_coverage: [tool: ExCoveralls],
      preferred_cli_env: ["coveralls": :test, "coveralls.detail": :test, "coveralls.post": :test, "coveralls.html": :test],
+     aliases: aliases(),
      description: description()]
   end
 
   def application do
     []
+  end
+
+  def aliases do
+    ["test": ["credo --strict", "test"]]
   end
 
   defp deps do
