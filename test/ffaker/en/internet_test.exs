@@ -62,7 +62,9 @@ defmodule Ffaker.En.InternetTest do
   end
 
   test "slug/0" do
-    assert slug == "a:b"
+    actual = slug
+    assert Regex.match?(~r/\A\w+[-_.]\w+\z/, actual),
+          "#{actual} is not matched"
   end
 
   test "password/1" do
