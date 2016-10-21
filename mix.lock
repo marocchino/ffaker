@@ -1,7 +1,7 @@
 %{"bunt": {:hex, :bunt, "0.1.6", "5d95a6882f73f3b9969fdfd1953798046664e6f77ec4e486e6fafc7caad97c6f", [:mix], []},
   "certifi": {:hex, :certifi, "0.4.0", "a7966efb868b179023618d29a407548f70c52466bf1849b9e8ebd0e34b7ea11f", [:rebar3], []},
   "coverex": {:hex, :coverex, "1.4.10", "f6b68f95b3d51d04571a09dd2071c980e8398a38cf663db22b903ecad1083d51", [:mix], [{:httpoison, "~> 0.9", [hex: :httpoison, optional: false]}, {:poison, "~> 1.5 or ~> 2.0", [hex: :poison, optional: false]}]},
-  "credo": {:hex, :credo, "0.4.11", "03a64e9d53309b7132556284dda0be57ba1013885725124cfea7748d740c6170", [:mix], [{:bunt, "~> 0.1.6", [hex: :bunt, optional: false]}]},
+  "credo": {:hex, :credo, "0.4.12", "f5e1973405ea25c6e64959fb0b6bf92950147a0278cc2a002a491b45f78f7b87", [:mix], [{:bunt, "~> 0.1.6", [hex: :bunt, optional: false]}]},
   "earmark": {:hex, :earmark, "0.2.1", "ba6d26ceb16106d069b289df66751734802777a3cbb6787026dd800ffeb850f3", [:mix], []},
   "ex_doc": {:hex, :ex_doc, "0.12.0", "b774aabfede4af31c0301aece12371cbd25995a21bb3d71d66f5c2fe074c603f", [:mix], [{:earmark, "~> 0.2", [hex: :earmark, optional: false]}]},
   "excoveralls": {:hex, :excoveralls, "0.5.6", "35a903f6f78619ee7f951448dddfbef094b3a0d8581657afaf66465bc930468e", [:mix], [{:exjsx, "~> 3.0", [hex: :exjsx, optional: false]}, {:hackney, ">= 0.12.0", [hex: :hackney, optional: false]}]},
