@@ -32,7 +32,7 @@ defmodule Ffaker.En.Job do
   def prefix do
     "data/en/job/prefixes"
     |> list_file
-    |> random
+    |> Enum.random
   end
 
   @doc """
@@ -47,7 +47,7 @@ defmodule Ffaker.En.Job do
   def adj do
     "data/en/job/adjs"
     |> list_file
-    |> random
+    |> Enum.random
   end
 
   @doc """
@@ -62,6 +62,6 @@ defmodule Ffaker.En.Job do
   def noun do
     "data/en/job/nouns"
     |> list_file
-    |> random
+    |> Enum.random
   end
 end

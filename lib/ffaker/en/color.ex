@@ -17,7 +17,7 @@ defmodule Ffaker.En.Color do
   def name do
     "data/en/color/names"
     |> list_file
-    |> random
+    |> Enum.random
   end
 
   @doc """
@@ -31,7 +31,7 @@ defmodule Ffaker.En.Color do
   @spec hex_code() :: String.t
   def hex_code do
     0..0xffffff
-    |> random
+    |> Enum.random
     |> Integer.to_string(16)
     |> String.pad_leading(6, "0")
   end
@@ -46,7 +46,7 @@ defmodule Ffaker.En.Color do
   """
   @spec rgb() :: Enum.t
   def rgb do
-    color = random(0..0xffffff)
+    color = Enum.random(0..0xffffff)
     [div(color, 0x10000), rem(div(color, 0x100), 0x100), rem(color, 0x100)]
   end
 
@@ -60,9 +60,9 @@ defmodule Ffaker.En.Color do
   """
   @spec hsl() :: Enum.t
   def hsl do
-    h = random(0..360)
-    s = "#{div(random(0..1000), 10)}%"
-    l = "#{div(random(0..10000), 100)}%"
+    h = Enum.random(0..360)
+    s = "#{div(Enum.random(0..1000), 10)}%"
+    l = "#{div(Enum.random(0..10000), 100)}%"
     [h, s, l]
   end
 
@@ -102,6 +102,6 @@ defmodule Ffaker.En.Color do
   """
   @spec alpha() :: number
   def alpha do
-    random(0..100) / 100
+    Enum.random(0..100) / 100
   end
 end

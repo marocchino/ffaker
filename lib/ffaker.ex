@@ -4,21 +4,6 @@ defmodule Ffaker do
   """
 
   @doc """
-  random by custom seed
-
-  It returns random element of enumerable
-
-  ## Examples
-
-      iex> Ffaker.random(0..100)
-      12
-  """
-  @spec random(Enum.t) :: any | no_return
-  def random(enumerable) do
-    Enum.random(enumerable)
-  end
-
-  @doc """
   make list from file
 
   ## Parameters

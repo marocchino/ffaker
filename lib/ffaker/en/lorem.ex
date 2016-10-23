@@ -25,7 +25,7 @@ defmodule Ffaker.En.Lorem do
   def characters(count \\ 255) do
     characters = list_file("data/en/lorem/characters")
     Enum.reduce(1..count, "", fn(_, acc) ->
-      acc <> random(characters)
+      acc <> Enum.random(characters)
     end)
   end
 
@@ -41,7 +41,7 @@ defmodule Ffaker.En.Lorem do
   def word do
     "data/en/lorem/words"
     |> list_file
-    |> random
+    |> Enum.random
   end
 
   @doc """
@@ -59,7 +59,7 @@ defmodule Ffaker.En.Lorem do
   """
   @spec sentence(Enum.t) :: String.t
   def sentence(words_range \\ 4..8) do
-    count = random(words_range)
+    count = Enum.random(words_range)
     (1..count
      |> Enum.map(fn(_) -> word end)
      |> Enum.join(" ")
@@ -83,7 +83,7 @@ defmodule Ffaker.En.Lorem do
   """
   @spec paragraph(Enum.t) :: String.t
   def paragraph(sentences_range \\ 3..6) do
-    count = random(sentences_range)
+    count = Enum.random(sentences_range)
     1..count
     |> Enum.map(fn(_) -> sentence end)
     |> Enum.join(" ")

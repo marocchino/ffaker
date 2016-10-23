@@ -59,7 +59,7 @@ defmodule Ffaker.En.Name do
   def male_first_name do
     "data/en/name/first_names_male"
     |> list_file
-    |> random
+    |> Enum.random
   end
 
   @doc """
@@ -74,7 +74,7 @@ defmodule Ffaker.En.Name do
   def female_first_name do
     "data/en/name/first_names_female"
     |> list_file
-    |> random
+    |> Enum.random
   end
 
   @doc """
@@ -89,7 +89,7 @@ defmodule Ffaker.En.Name do
   def last_name do
     "data/en/name/last_names"
     |> list_file
-    |> random
+    |> Enum.random
   end
 
   @doc """
@@ -105,7 +105,7 @@ defmodule Ffaker.En.Name do
     "data/en/name/last_names"
     |> list_file
     |> Enum.filter(&(not String.contains?(&1, "'")))
-    |> random
+    |> Enum.random
   end
 
   @doc """
@@ -149,7 +149,7 @@ defmodule Ffaker.En.Name do
   @spec female_prefix() :: String.t
   def female_prefix do
     @female_prefixes
-    |> random
+    |> Enum.random
   end
 
   @doc """
@@ -163,7 +163,7 @@ defmodule Ffaker.En.Name do
   @spec other_prefix() :: String.t
   def other_prefix do
     @other_prefixes
-    |> random
+    |> Enum.random
   end
 
   @doc """
@@ -177,6 +177,6 @@ defmodule Ffaker.En.Name do
   @spec suffix() :: String.t
   def suffix do
     @suffixes
-    |> random
+    |> Enum.random
   end
 end

@@ -1,13 +1,12 @@
 defmodule Ffaker.SeedTest do
   use ExUnit.Case, async: true
   import Ffaker.Seed
-  import Ffaker
 
   test "reset/0" do
     reset
-    first = [random(1..10), random(1..10), random(1..10)]
+    first = [1..10, 1..10, 1..10] |> Enum.map(&Enum.random/1)
     reset
-    second = [random(1..10), random(1..10), random(1..10)]
+    second = [1..10, 1..10, 1..10] |> Enum.map(&Enum.random/1)
     assert first == second
   end
 end

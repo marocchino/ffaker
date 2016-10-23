@@ -1,5 +1,4 @@
 defmodule Ffaker.En.Internet do
-  import Ffaker, only: [random: 1]
   alias Ffaker.En.Name
   alias Ffaker.En.Lorem
 
@@ -27,7 +26,7 @@ defmodule Ffaker.En.Internet do
   """
   @spec email() :: String.t
   def email do
-    "#{user_name}@#{@hosts |> random}"
+    "#{user_name}@#{@hosts |> Enum.random}"
   end
 
   @doc """
@@ -40,7 +39,7 @@ defmodule Ffaker.En.Internet do
   """
   @spec disposable_email() :: String.t
   def disposable_email do
-    "#{user_name}@#{@disposable_hosts |> random}"
+    "#{user_name}@#{@disposable_hosts |> Enum.random}"
   end
 
   @doc """
@@ -53,7 +52,7 @@ defmodule Ffaker.En.Internet do
   """
   @spec free_email() :: String.t
   def free_email do
-    "#{user_name}@#{@free_hosts |> random}"
+    "#{user_name}@#{@free_hosts |> Enum.random}"
   end
 
   @doc """
@@ -66,7 +65,7 @@ defmodule Ffaker.En.Internet do
   """
   @spec safe_email() :: String.t
   def safe_email do
-    "#{user_name}@example.#{@safe_domain_suffixes |> random}"
+    "#{user_name}@example.#{@safe_domain_suffixes |> Enum.random}"
   end
 
   @doc """
@@ -93,7 +92,7 @@ defmodule Ffaker.En.Internet do
   """
   @spec domain_name() :: String.t
   def domain_name do
-    "#{Name.last_name |> escape}#{@domain_suffixes |> random}"
+    "#{Name.last_name |> escape}#{@domain_suffixes |> Enum.random}"
   end
 
   @doc """
@@ -119,10 +118,8 @@ defmodule Ffaker.En.Internet do
   """
   @spec ip_v4_address() :: String.t
   def ip_v4_address do
-    [0..255 |> random,
-     0..255 |> random,
-     0..255 |> random,
-     0..255 |> random]
+    [0..255, 0..255, 0..255, 0..255]
+    |> Enum.map(&Enum.random/1)
     |> Enum.join(".")
   end
 
@@ -140,7 +137,7 @@ defmodule Ffaker.En.Internet do
             2..2
             |> Lorem.sentence
             |> String.trim(".")
-    glue = glue || @slug_delimiters |> random
+    glue = glue || @slug_delimiters |> Enum.random
 
     words
     |> String.downcase
@@ -157,9 +154,9 @@ defmodule Ffaker.En.Internet do
   """
   @spec password(Range.t) :: String.t
   def password(length_range \\ 8..16) do
-    length = length_range |> random
+    length = length_range |> Enum.random
     1..length
-    |> Enum.map(fn _ -> ?a..?z |> random end)
+    |> Enum.map(fn _ -> ?a..?z |> Enum.random end)
     |> to_string
 
   end
@@ -175,7 +172,7 @@ defmodule Ffaker.En.Internet do
   @spec mac() :: String.t
   def mac do
     1..281_474_976_710_655
-    |> random
+    |> Enum.random
     |> Integer.to_string(16)
     |> String.pad_leading(12, "0")
     |> String.replace(~r(..), "\\0:")
