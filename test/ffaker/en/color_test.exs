@@ -9,7 +9,8 @@ defmodule Ffaker.En.ColorTest do
   end
 
   test "hex_code/0" do
-    assert Regex.match?(~r/\A[0-9A-F]{6}\z/, hex_code)
+    actual = hex_code
+    assert Regex.match?(~r/\A[0-9A-F]{6}\z/, actual), "#{actual} is not matched"
   end
 
   test "rgb/0" do
@@ -37,8 +38,10 @@ defmodule Ffaker.En.ColorTest do
     lightness = Enum.at(hsla, 2)
     alpha = Enum.at(hsla, 3)
     assert hue >= 0 and hue <= 360
-    assert Regex.match?(~r/\A\d{1,3}%\z/, saturation)
-    assert Regex.match?(~r/\A\d{1,3}%\z/, lightness)
+    assert Regex.match?(~r/\A\d{1,3}%\z/, saturation),
+           "#{saturation} is not matched"
+    assert Regex.match?(~r/\A\d{1,3}%\z/, lightness),
+           "#{saturation} is not matched"
     assert alpha >= 0.0 and alpha <= 1.0
   end
 

@@ -14,10 +14,14 @@ defmodule Ffaker.En.LoremTest do
   end
 
   test "sentence/1" do
-    assert Regex.match?(~r/\A[A-Z][a-z ]+\.\z/, sentence)
+    actual = sentence
+    assert Regex.match?(~r/\A[A-Z][a-z ]+\.\z/, actual),
+           "#{actual} is not matched"
   end
 
   test "paragraph/1" do
-    assert Regex.match?(~r/\A(?:[A-Z][a-z .]+ ?)+\z/, paragraph)
+    actual = paragraph
+    assert Regex.match?(~r/\A(?:[A-Z][a-z .]+ ?)+\z/, actual),
+           "#{actual} is not matched"
   end
 end
