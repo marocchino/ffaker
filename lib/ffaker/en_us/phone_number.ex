@@ -103,16 +103,4 @@ defmodule Ffaker.EnUs.PhoneNumer do
          end)
     "#{base_digits}#{10 - check_digit}"
   end
-
-  defp numerify(string) do
-    string
-    |> String.graphemes
-    |> Enum.map(fn x ->
-         case x do
-           "#" -> 0..9 |> Enum.random |> to_string
-           x -> x
-         end
-       end)
-    |> Enum.join
-  end
 end
