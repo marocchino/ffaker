@@ -3,7 +3,7 @@ defmodule Ffaker.Seed do
   manage seed
   """
   @doc """
-  init seed
+  Init seed
 
   ## Examples
 
@@ -20,12 +20,16 @@ defmodule Ffaker.Seed do
 
   ## Examples
 
-      iex> s = Ffaker.Seed.next
-      957639
-      iex> Ffaker.Seed.next(s)
-      957640
-      iex> Ffaker.Seed.next(s)
-      957641
+      iex> s = Ffaker.Seed.reset
+      iex> Enum.Random(1..10)
+      5
+      iex> Enum.Random(1..10)
+      7
+      iex> s = Ffaker.Seed.reset
+      iex> Enum.Random(1..10)
+      5
+      iex> Enum.Random(1..10)
+      7
   """
   def reset do
     s = seed
