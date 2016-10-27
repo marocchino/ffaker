@@ -1,8 +1,9 @@
 defmodule Ffaker.En.Name do
-  import Ffaker, only: [list_file: 1]
+  import Ffaker, only: [list_file: 2]
   @moduledoc """
   Functions for name data in English
   """
+  @path "en/name"
   @suffixes ~w(Jr. Sr. I II III IV V MD DDS PhD DVM)
   @female_prefixes ~w(Mrs. Miss.)
   @other_prefixes ~w(Ms. Dr.)
@@ -56,7 +57,7 @@ defmodule Ffaker.En.Name do
   """
   @spec male_first_name() :: String.t
   def male_first_name do
-    "data/en/name/first_names_male" |> list_file |> Enum.random
+    "male_first_names" |> list_file(@path) |> Enum.random
   end
 
   @doc """
@@ -69,7 +70,7 @@ defmodule Ffaker.En.Name do
   """
   @spec female_first_name() :: String.t
   def female_first_name do
-    "data/en/name/first_names_female" |> list_file |> Enum.random
+    "female_first_names" |> list_file(@path) |> Enum.random
   end
 
   @doc """
@@ -82,7 +83,7 @@ defmodule Ffaker.En.Name do
   """
   @spec last_name() :: String.t
   def last_name do
-    "data/en/name/last_names" |> list_file |> Enum.random
+    "last_names" |> list_file(@path) |> Enum.random
   end
 
   @doc """
@@ -95,8 +96,8 @@ defmodule Ffaker.En.Name do
   """
   @spec html_safe_last_name() :: String.t
   def html_safe_last_name do
-    "data/en/name/last_names"
-    |> list_file
+    "last_names"
+    |> list_file(@path)
     |> Enum.filter(&(not String.contains?(&1, "'")))
     |> Enum.random
   end

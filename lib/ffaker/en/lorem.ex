@@ -1,8 +1,10 @@
 defmodule Ffaker.En.Lorem do
-  import Ffaker
+  import Ffaker, only: [list_file: 2]
   @moduledoc """
   Functions for lorem data in English
   """
+  @path "en/lorem"
+
 
   @doc """
   Returns characters
@@ -23,7 +25,7 @@ defmodule Ffaker.En.Lorem do
   """
   @spec characters(number) :: String.t
   def characters(count \\ 255) do
-    characters = list_file("data/en/lorem/characters")
+    characters = "characters" |> list_file(@path)
     Enum.reduce(1..count, "", fn(_, acc) ->
       acc <> Enum.random(characters)
     end)
@@ -39,9 +41,7 @@ defmodule Ffaker.En.Lorem do
   """
   @spec word :: String.t
   def word do
-    "data/en/lorem/words"
-    |> list_file
-    |> Enum.random
+    "words" |> list_file(@path) |> Enum.random
   end
 
   @doc """

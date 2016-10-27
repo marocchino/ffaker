@@ -1,10 +1,11 @@
 defmodule Ffaker.En.ColorTest do
   use ExUnit.Case, async: true
-  import Ffaker, only: [list_file: 1]
   import Ffaker.En.Color
+  import Ffaker, only: [list_file: 2]
+  @path "en/color"
 
   test "name/0" do
-    names = list_file("data/en/color/names")
+    names = list_file("names", @path)
     assert name in names
   end
 

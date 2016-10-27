@@ -1,8 +1,9 @@
 defmodule Ffaker.EnUs.PhoneNumer do
-  import Ffaker
+  import Ffaker, only: [list_file: 2, numerify: 1]
   @moduledoc """
   Functions for US PhoneNumer data in English
   """
+  @path "en_us/phone_number"
 
   @doc """
   Returns US phone_number
@@ -72,9 +73,7 @@ defmodule Ffaker.EnUs.PhoneNumer do
       "+91"
   """
   def phone_calling_code do
-    "data/en_us/phone_number/phone_calling_codes"
-    |> list_file
-    |> Enum.random
+    "phone_calling_codes" |> list_file(@path) |> Enum.random
   end
 
   @doc """

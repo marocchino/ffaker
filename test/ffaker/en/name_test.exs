@@ -1,51 +1,52 @@
 defmodule Ffaker.En.NameTest do
   use ExUnit.Case, async: true
-  import Ffaker, only: [list_file: 1]
   import Ffaker.En.Name
+  import Ffaker, only: [list_file: 2]
+  @path "en/name"
 
   test "name/0" do
     [first_name, last_name] = String.split(name, " ")
 
-    last_names = list_file("data/en/name/last_names")
-    first_names = list_file("data/en/name/first_names_male") ++
-      list_file("data/en/name/first_names_female")
+    last_names = list_file("last_names", @path)
+    first_names = list_file("male_first_names", @path) ++
+      list_file("female_first_names", @path)
     assert first_name in first_names
     assert last_name in last_names
   end
 
   test "html_safe_name/0" do
     [first_name, last_name] = String.split(html_safe_name, " ")
-    last_names = list_file("data/en/name/last_names")
-    first_names = list_file("data/en/name/first_names_male") ++
-      list_file("data/en/name/first_names_female")
+    last_names = list_file("last_names", @path)
+    first_names = list_file("male_first_names", @path) ++
+      list_file("female_first_names", @path)
     assert first_name in first_names
     assert last_name in last_names
     refute String.contains?(last_name, "'")
   end
 
   test "first_name/0" do
-    first_names = list_file("data/en/name/first_names_male") ++
-      list_file("data/en/name/first_names_female")
+    first_names = list_file("male_first_names", @path) ++
+      list_file("female_first_names", @path)
     assert first_name in first_names
   end
 
   test "male_first_name/0" do
-    first_names = list_file("data/en/name/first_names_male")
+    first_names = list_file("male_first_names", @path)
     assert male_first_name in first_names
   end
 
   test "female_first_name/0" do
-    first_names = list_file("data/en/name/first_names_female")
+    first_names = list_file("female_first_names", @path)
     assert female_first_name in first_names
   end
 
   test "last_name/0" do
-    last_names = list_file("data/en/name/last_names")
+    last_names = list_file("last_names", @path)
     assert last_name in last_names
   end
 
   test "html_safe_last_name/0" do
-    last_names = list_file("data/en/name/last_names")
+    last_names = list_file("last_names", @path)
     assert html_safe_last_name in last_names
     refute String.contains?(html_safe_last_name, "'")
   end

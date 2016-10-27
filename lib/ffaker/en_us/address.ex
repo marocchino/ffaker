@@ -1,10 +1,11 @@
 defmodule Ffaker.EnUs.Address do
-  import Ffaker, only: [list_file: 1, numerify: 1]
+  import Ffaker, only: [list_file: 2, numerify: 1]
   alias Ffaker.En.Name
   @moduledoc """
   Functions for US Address data in English
   """
 
+  @path "en_us/address"
   @city_prefixes ~w(North East West South New Lake Port)
   @sec_addrs [" Apt. ###", " Suite ###", ""]
 
@@ -30,7 +31,7 @@ defmodule Ffaker.EnUs.Address do
   """
   def city do
     city_prefix = @city_prefixes |> Enum.random
-    city_suffix = "data/en_us/address/city_suffixes" |> list_file |> Enum.random
+    city_suffix = "city_suffixes" |> list_file(@path) |> Enum.random
     first_name = Name.first_name
     ["#{first_name}#{city_suffix}",
      "#{city_prefix} #{first_name}",
@@ -47,7 +48,7 @@ defmodule Ffaker.EnUs.Address do
       "Candlewood Country Club"
   """
   def neighborhood do
-    "data/en_us/address/neighborhoods" |> list_file |> Enum.random
+    "neighborhoods" |> list_file(@path) |> Enum.random
   end
 
   @doc """
@@ -62,8 +63,8 @@ defmodule Ffaker.EnUs.Address do
     building_number = ~w(### #### ##### ######) |> Enum.random |> numerify
     sec_addr = @sec_addrs |> Enum.random |> numerify
     street_suffix =
-      "data/en_us/address/street_suffixes"
-      |> list_file
+      "street_suffixes"
+      |> list_file(@path)
       |> Enum.random
     "#{building_number} #{Name.first_name} #{street_suffix}#{sec_addr}"
   end
@@ -77,7 +78,7 @@ defmodule Ffaker.EnUs.Address do
       "Hawaii"
   """
   def state do
-    "data/en_us/address/states" |> list_file |> Enum.random
+    "states" |> list_file(@path) |> Enum.random
   end
 
   @doc """
@@ -89,7 +90,7 @@ defmodule Ffaker.EnUs.Address do
       "HI"
   """
   def state_abbr do
-    "data/en_us/address/states_abbrs" |> list_file |> Enum.random
+    "states_abbrs" |> list_file(@path) |> Enum.random
   end
 
   @doc """
@@ -101,9 +102,7 @@ defmodule Ffaker.EnUs.Address do
       "MS"
   """
   def state_and_territory_abbr do
-    "data/en_us/address/states_and_territories_abbrs"
-    |> list_file
-    |> Enum.random
+    "states_and_territories_abbrs" |> list_file(@path) |> Enum.random
   end
 
   @doc """

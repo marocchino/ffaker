@@ -1,7 +1,8 @@
 defmodule Ffaker.EnUs.AddressTest do
   use ExUnit.Case, async: true
   import Ffaker.EnUs.Address
-  import Ffaker, only: [list_file: 1]
+  import Ffaker, only: [list_file: 2]
+  @path "en_us/address"
 
   test "zip_code/0" do
     actual = zip_code
@@ -16,7 +17,7 @@ defmodule Ffaker.EnUs.AddressTest do
   end
 
   test "neighborhood/0" do
-    neighborhoods = "data/en_us/address/neighborhoods" |> list_file
+    neighborhoods = "neighborhoods" |> list_file(@path)
     assert neighborhood in neighborhoods
   end
 
@@ -27,30 +28,30 @@ defmodule Ffaker.EnUs.AddressTest do
   end
 
   test "state/0" do
-    states = "data/en_us/address/states" |> list_file
+    states = "states" |> list_file(@path)
     assert state in states
   end
 
   test "state_abbr/0" do
-    states_abbrs = "data/en_us/address/states_abbrs" |> list_file
+    states_abbrs = "states_abbrs" |> list_file(@path)
     assert state_abbr in states_abbrs
   end
 
   test "state_and_territory_abbr/0" do
     states_and_territories_abbrs =
-      "data/en_us/address/states_and_territories_abbrs" |> list_file
+      "states_and_territories_abbrs" |> list_file(@path)
     assert state_and_territory_abbr in states_and_territories_abbrs
   end
 
   test "continental_state/0" do
-    states = "data/en_us/address/states" |> list_file
+    states = "states" |> list_file(@path)
     actual = continental_state
     assert actual in states
     refute actual in ~w(Hawaii Alaska)
   end
 
   test "continental_state_abbr/0" do
-    states_abbrs = "data/en_us/address/states_abbrs" |> list_file
+    states_abbrs = "states_abbrs" |> list_file(@path)
     actual = continental_state_abbr
     assert actual in states_abbrs
     refute actual in ~w(HI AK)

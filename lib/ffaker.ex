@@ -9,15 +9,17 @@ defmodule Ffaker do
   ## Parameters
 
     - file_name: data file name
+    - dir_path: directory path of file
 
   ## Examples
 
-      iex> Ffaker.list_file("test/data/number")
+      iex> Ffaker.list_file("numbers", "test")
       ["1", "2", "3"]
   """
-  @spec list_file(String.t) :: Enum.t
-  def list_file(file_name) do
-    case File.read(file_name) do
+  @spec list_file(String.t, String.t) :: Enum.t
+  def list_file(file_name, dir_path) do
+    file_path = "data/#{dir_path}/#{file_name}"
+    case File.read(file_path) do
       {:ok, res} ->
         res
         |> String.trim

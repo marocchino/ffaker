@@ -1,9 +1,10 @@
 defmodule Ffaker.En.Color do
-  import Ffaker
+  import Ffaker, only: [list_file: 2]
   @moduledoc """
   Functions for color data in English
   """
   @colors ~w(female male unknown)
+  @path "en/color"
 
   @doc """
   Returns color name
@@ -15,9 +16,7 @@ defmodule Ffaker.En.Color do
   """
   @spec name() :: String.t
   def name do
-    "data/en/color/names"
-    |> list_file
-    |> Enum.random
+    "names" |> list_file(@path) |> Enum.random
   end
 
   @doc """

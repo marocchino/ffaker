@@ -1,8 +1,9 @@
 defmodule Ffaker.En.Job do
-  import Ffaker
+  import Ffaker, only: [list_file: 2]
   @moduledoc """
   Functions for job data in English
   """
+  @path "en/job"
   @suffixes ~w(Jr. Sr. I II III IV V MD DDS PhD DVM)
   @female_prefixes ~w(Mrs. Miss.)
   @other_prefixes ~w(Ms. Dr.)
@@ -30,9 +31,7 @@ defmodule Ffaker.En.Job do
   """
   @spec prefix() :: String.t
   def prefix do
-    "data/en/job/prefixes"
-    |> list_file
-    |> Enum.random
+    "prefixes" |> list_file(@path) |> Enum.random
   end
 
   @doc """
@@ -45,9 +44,7 @@ defmodule Ffaker.En.Job do
   """
   @spec adj() :: String.t
   def adj do
-    "data/en/job/adjs"
-    |> list_file
-    |> Enum.random
+    "adjs" |> list_file(@path) |> Enum.random
   end
 
   @doc """
@@ -60,8 +57,6 @@ defmodule Ffaker.En.Job do
   """
   @spec noun() :: String.t
   def noun do
-    "data/en/job/nouns"
-    |> list_file
-    |> Enum.random
+    "nouns" |> list_file(@path) |> Enum.random
   end
 end
