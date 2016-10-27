@@ -5,6 +5,7 @@ defmodule Ffaker.Mixfile do
     [app: :ffaker,
      version: "0.1.0",
      elixir: "~> 1.3",
+     elixirc_paths: elixirc_paths(Mix.env),
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps(),
@@ -22,6 +23,9 @@ defmodule Ffaker.Mixfile do
   def aliases do
     ["test": ["credo --strict", "test"]]
   end
+
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_),     do: ["lib"]
 
   defp deps do
     [{:excoveralls, "~> 0.5.6", only: :test},

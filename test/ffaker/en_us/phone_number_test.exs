@@ -2,12 +2,11 @@ defmodule Ffaker.EnUs.PhoneNumerTest do
   use ExUnit.Case, async: true
   import Ffaker.EnUs.PhoneNumer
   import Ffaker, only: [list_file: 2]
+  import Ffaker.Matcher, only: [assert_match: 2]
   @path "en_us/phone_number"
 
   test "phone_number/0" do
-    actual = phone_number
-    assert Regex.match?(~r/\A(?:1-)?\d{3}-\d{3}-\d{4}(?: x\d{3,5})?\z/, actual),
-           "#{actual} is not matched"
+    assert_match ~r/\A(?:1-)?\d{3}-\d{3}-\d{4}(?: x\d{3,5})?\z/, phone_number
   end
 
   test "area_code/0" do
@@ -22,9 +21,7 @@ defmodule Ffaker.EnUs.PhoneNumerTest do
   end
 
   test "short_phone_number/0" do
-    actual = short_phone_number
-    assert Regex.match?(~r/\A\d{3}-\d{3}-\d{4}\z/, actual),
-           "#{actual} is not matched"
+    assert_match ~r/\A\d{3}-\d{3}-\d{4}\z/, short_phone_number
   end
 
   test "phone_calling_code/0" do
@@ -37,8 +34,6 @@ defmodule Ffaker.EnUs.PhoneNumerTest do
   end
 
   test "imei/0" do
-    actual = imei("123456")
-    assert Regex.match?(~r/\A\d{15}\z/, actual),
-           "#{actual} is not matched"
+    assert_match ~r/\A\d{15}\z/, imei("123456")
   end
 end

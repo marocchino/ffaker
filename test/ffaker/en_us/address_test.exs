@@ -2,18 +2,15 @@ defmodule Ffaker.EnUs.AddressTest do
   use ExUnit.Case, async: true
   import Ffaker.EnUs.Address
   import Ffaker, only: [list_file: 2]
+  import Ffaker.Matcher, only: [assert_match: 2]
   @path "en_us/address"
 
   test "zip_code/0" do
-    actual = zip_code
-    assert Regex.match?(~r/\A\d{5}(?:-\d{4})?\z/, actual),
-           "#{actual} is not matched"
+    assert_match ~r/\A\d{5}(?:-\d{4})?\z/, zip_code
   end
 
   test "city/0" do
-    actual = city
-    assert Regex.match?(~r/\A[\w ]+\z/, actual),
-           "#{actual} is not matched"
+    assert_match ~r/\A[\w ]+\z/, city
   end
 
   test "neighborhood/0" do
@@ -22,9 +19,7 @@ defmodule Ffaker.EnUs.AddressTest do
   end
 
   test "street/0" do
-    actual = street
-    assert Regex.match?(~r/\A[\w. ]+\z/, actual),
-           "#{actual} is not matched"
+    assert_match ~r/\A[\w. ]+\z/, street
   end
 
   test "state/0" do

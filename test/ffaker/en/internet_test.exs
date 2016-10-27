@@ -1,6 +1,7 @@
 defmodule Ffaker.En.InternetTest do
   use ExUnit.Case, async: true
   import Ffaker.En.Internet
+  import Ffaker.Matcher, only: [assert_match: 2]
   @free_hosts ~w(gmail.com yahoo.com hotmail.com)
   @disposable_hosts ~w(mailinator.com
                        suremail.info
@@ -9,8 +10,7 @@ defmodule Ffaker.En.InternetTest do
                        safetymail.info)
 
   test "email/0" do
-    assert Regex.match?(~r/\A[a-z.]+@[a-z.]+\z/, email),
-          "#{email} is not matched"
+    assert_match ~r/\A[a-z.]+@[a-z.]+\z/, email
   end
 
   test "disposable_email/0" do
@@ -22,39 +22,27 @@ defmodule Ffaker.En.InternetTest do
   end
 
   test "safe_email/0" do
-    actual = safe_email
-    assert Regex.match?(~r/\A[a-z.]+@example\.(org|com|net)\z/, actual),
-          "#{actual} is not matched"
+    assert_match ~r/\A[a-z.]+@example\.(org|com|net)\z/, safe_email
   end
 
   test "user_name/0" do
-    actual = user_name
-    assert Regex.match?(~r/\A[a-z.]+\z/, actual),
-          "#{actual} is not matched"
+    assert_match ~r/\A[a-z.]+\z/, user_name
   end
 
   test "domain_name/0" do
-    actual = domain_name
-    assert Regex.match?(~r/\A[a-z.]+\z/, actual),
-          "#{actual} is not matched"
+    assert_match ~r/\A[a-z.]+\z/, domain_name
   end
 
   test "uri/1" do
-    actual = uri("ftp")
-    assert Regex.match?(~r/\Aftp:\/\/[a-z.]+\z/, actual),
-          "#{actual} is not matched"
+    assert_match ~r/\Aftp:\/\/[a-z.]+\z/, uri("ftp")
   end
 
   test "uri/0" do
-    actual = uri
-    assert Regex.match?(~r/\Ahttps:\/\/[a-z.]+\z/, actual),
-          "#{actual} is not matched"
+    assert_match ~r/\Ahttps:\/\/[a-z.]+\z/, uri
   end
 
   test "ip_v4_address/0" do
-    actual = ip_v4_address
-    assert Regex.match?(~r/\A(?:\d{1,3}\.){3}\d{1,3}\z/, actual),
-          "#{actual} is not matched"
+    assert_match ~r/\A(?:\d{1,3}\.){3}\d{1,3}\z/, ip_v4_address
   end
 
   test "slug/2" do
@@ -62,26 +50,18 @@ defmodule Ffaker.En.InternetTest do
   end
 
   test "slug/0" do
-    actual = slug
-    assert Regex.match?(~r/\A\w+[-_.]\w+\z/, actual),
-          "#{actual} is not matched"
+    assert_match ~r/\A\w+[-_.]\w+\z/, slug
   end
 
   test "password/1" do
-    actual = password(10..10)
-    assert Regex.match?(~r/\A[a-z]{10}\z/, actual),
-          "#{actual} is not matched"
+    assert_match ~r/\A[a-z]{10}\z/, password(10..10)
   end
   test "password/0" do
-    actual = password
-    assert Regex.match?(~r/\A[a-z]{8,16}\z/, actual),
-          "#{actual} is not matched"
+    assert_match ~r/\A[a-z]{8,16}\z/, password
   end
 
   test "mac/0" do
-    actual = mac
-    assert Regex.match?(~r/\A(?:[A-F0-9]{2}:){5}[A-F0-9]{2}\z/, actual),
-          "#{actual} is not matched"
+    assert_match ~r/\A(?:[A-F0-9]{2}:){5}[A-F0-9]{2}\z/, mac
   end
 
   @spec host(String.t) :: String.t

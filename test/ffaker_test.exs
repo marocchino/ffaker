@@ -1,6 +1,7 @@
 defmodule FfakerTest do
   use ExUnit.Case, async: true
   import Ffaker
+  import Ffaker.Matcher, only: [assert_match: 2]
 
   test "list_file/2" do
     assert list_file("numbers", "test") == ~w(1 2 3)
@@ -10,7 +11,6 @@ defmodule FfakerTest do
   end
 
   test "numerify/1" do
-    n = numerify("abc ###")
-    assert Regex.match?(~r/\Aabc \d{3}\z/, n), "#{n} is not matched"
+    assert_match ~r/\Aabc \d{3}\z/, numerify("abc ###")
   end
 end

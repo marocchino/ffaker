@@ -2,6 +2,7 @@ defmodule Ffaker.En.LoremTest do
   use ExUnit.Case, async: true
   import Ffaker.En.Lorem
   import Ffaker, only: [list_file: 2]
+  import Ffaker.Matcher, only: [assert_match: 2]
   @path "en/lorem"
 
   test "characters/1" do
@@ -15,14 +16,10 @@ defmodule Ffaker.En.LoremTest do
   end
 
   test "sentence/1" do
-    actual = sentence
-    assert Regex.match?(~r/\A[A-Z][a-z ]+\.\z/, actual),
-           "#{actual} is not matched"
+    assert_match ~r/\A[A-Z][a-z ]+\.\z/, sentence
   end
 
   test "paragraph/1" do
-    actual = paragraph
-    assert Regex.match?(~r/\A(?:[A-Z][a-z .]+ ?)+\z/, actual),
-           "#{actual} is not matched"
+    assert_match ~r/\A(?:[A-Z][a-z .]+ ?)+\z/, paragraph
   end
 end
