@@ -60,8 +60,8 @@ defmodule Ffaker.En.Color do
   @spec hsl() :: Enum.t
   def hsl do
     h = Enum.random(0..360)
-    s = "#{div(Enum.random(0..1000), 10)}%"
-    l = "#{div(Enum.random(0..10000), 100)}%"
+    s = "#{Enum.random(0..100)}%"
+    l = "#{Enum.random(0..100)}%"
     [h, s, l]
   end
 
