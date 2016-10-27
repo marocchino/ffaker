@@ -1,13 +1,11 @@
 defmodule Ffaker.En.ColorTest do
   use ExUnit.Case, async: true
   import Ffaker.En.Color
-  import Ffaker, only: [list_file: 2]
-  import Ffaker.Matcher, only: [assert_match: 2]
+  import Ffaker.Matcher, only: [assert_match: 2, assert_in_file: 3]
   @path "en/color"
 
   test "name/0" do
-    names = list_file("names", @path)
-    assert name in names
+    assert_in_file(name, "names", @path)
   end
 
   test "hex_code/0" do

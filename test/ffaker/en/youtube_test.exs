@@ -1,8 +1,7 @@
 defmodule Ffaker.En.YoutubeTest do
   use ExUnit.Case, async: true
   import Ffaker.En.Youtube
-  import Ffaker, only: [list_file: 2]
-  import Ffaker.Matcher, only: [assert_match: 2]
+  import Ffaker.Matcher, only: [assert_match: 2, assert_in_file: 3]
   @path "en/youtube"
 
   test "url/0" do
@@ -18,7 +17,6 @@ defmodule Ffaker.En.YoutubeTest do
   end
 
   test "video_id/0" do
-    video_ids = "video_ids" |> list_file(@path)
-    assert video_id in video_ids
+    assert_in_file(video_id, "video_ids", @path)
   end
 end

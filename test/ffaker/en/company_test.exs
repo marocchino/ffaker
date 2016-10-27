@@ -1,8 +1,7 @@
 defmodule Ffaker.En.CompanyTest do
   use ExUnit.Case, async: true
   import Ffaker.En.Company
-  import Ffaker, only: [list_file: 2]
-  import Ffaker.Matcher, only: [assert_match: 2]
+  import Ffaker.Matcher, only: [assert_match: 2, assert_in_file: 3]
   @path "en/company"
 
   test "name/0" do
@@ -26,7 +25,6 @@ defmodule Ffaker.En.CompanyTest do
   end
 
   test "position_area/0" do
-    position_areas = list_file("position_areas", @path)
-    assert position_area in position_areas
+    assert_in_file(position_area, "position_areas", @path)
   end
 end

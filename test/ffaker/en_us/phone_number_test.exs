@@ -1,8 +1,7 @@
 defmodule Ffaker.EnUs.PhoneNumerTest do
   use ExUnit.Case, async: true
   import Ffaker.EnUs.PhoneNumer
-  import Ffaker, only: [list_file: 2]
-  import Ffaker.Matcher, only: [assert_match: 2]
+  import Ffaker.Matcher, only: [assert_match: 2, assert_in_file: 3]
   @path "en_us/phone_number"
 
   test "phone_number/0" do
@@ -25,8 +24,7 @@ defmodule Ffaker.EnUs.PhoneNumerTest do
   end
 
   test "phone_calling_code/0" do
-    codes = list_file("phone_calling_codes", @path)
-    assert phone_calling_code in codes
+    assert_in_file(phone_calling_code, "phone_calling_codes", @path)
   end
 
   test "imei/1" do
