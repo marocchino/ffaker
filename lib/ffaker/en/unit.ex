@@ -1,5 +1,4 @@
 defmodule Ffaker.En.Unit do
-  import Ffaker
   @moduledoc """
   Functions for units in English
   """

@@ -18,11 +18,13 @@ defmodule Ffaker.En.Company do
   """
   @spec name() :: String.t
   def name do
-    case Enum.random(0..2) do
-       0 -> "#{Name.last_name} #{suffix}"
-       1 -> "#{Name.last_name}-#{Name.last_name}"
-       _ -> "#{Name.last_name}, #{Name.last_name} and #{Name.last_name}"
-    end
+    first = Name.last_name
+    second = Name.last_name
+    last = Name.last_name
+    ["#{first} #{suffix}",
+     "#{first}-#{second}",
+     "#{first}, #{second} and #{last}"]
+    |> Enum.random
   end
 
   @doc """
@@ -99,12 +101,12 @@ defmodule Ffaker.En.Company do
   """
   @spec position() :: String.t
   def position do
-    pos = Enum.random(@positions)
-    case Enum.random(0..2) do
-       0 -> "#{position_area} #{pos}"
-       1 -> "#{Enum.random(@position_prefixes)} #{pos}"
-       _ -> "#{Enum.random(@position_prefixes)} #{position_area} #{pos}"
-    end
+    pos = @positions |> Enum.random
+    prefix = @position_prefixes |> Enum.random
+    ["#{position_area} #{pos}",
+     "#{prefix} #{pos}",
+     "#{prefix} #{position_area} #{pos}"]
+    |> Enum.random
   end
 
   @doc """

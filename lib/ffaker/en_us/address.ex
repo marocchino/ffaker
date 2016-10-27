@@ -31,11 +31,11 @@ defmodule Ffaker.EnUs.Address do
   def city do
     city_prefix = @city_prefixes |> Enum.random
     city_suffix = "data/en_us/address/city_suffixes" |> list_file |> Enum.random
-    case Enum.random(0..2) do
-       0 -> "#{Name.first_name}#{city_suffix}"
-       1 -> "#{city_prefix} #{Name.first_name}"
-       _ -> "#{city_prefix} #{Name.first_name}#{city_suffix}"
-    end
+    first_name = Name.first_name
+    ["#{first_name}#{city_suffix}",
+     "#{city_prefix} #{first_name}",
+     "#{city_prefix} #{first_name}#{city_suffix}"]
+    |> Enum.random
   end
 
   @doc """

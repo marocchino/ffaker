@@ -8,4 +8,9 @@ defmodule FfakerTest do
       list_file("not_exists")
     end
   end
+
+  test "numerify/1" do
+    n = numerify("abc ###")
+    assert Regex.match?(~r/\Aabc \d{3}\z/, n), "#{n} is not matched"
+  end
 end

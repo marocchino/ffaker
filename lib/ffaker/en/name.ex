@@ -1,6 +1,5 @@
 defmodule Ffaker.En.Name do
-  import Ffaker
-  alias Ffaker.En.Gender
+  import Ffaker, only: [list_file: 1]
   @moduledoc """
   Functions for name data in English
   """
@@ -44,7 +43,7 @@ defmodule Ffaker.En.Name do
   """
   @spec first_name() :: String.t
   def first_name do
-    Gender.female? && female_first_name || male_first_name
+    [female_first_name, male_first_name] |> Enum.random
   end
 
   @doc """
@@ -57,9 +56,7 @@ defmodule Ffaker.En.Name do
   """
   @spec male_first_name() :: String.t
   def male_first_name do
-    "data/en/name/first_names_male"
-    |> list_file
-    |> Enum.random
+    "data/en/name/first_names_male" |> list_file |> Enum.random
   end
 
   @doc """
@@ -72,9 +69,7 @@ defmodule Ffaker.En.Name do
   """
   @spec female_first_name() :: String.t
   def female_first_name do
-    "data/en/name/first_names_female"
-    |> list_file
-    |> Enum.random
+    "data/en/name/first_names_female" |> list_file |> Enum.random
   end
 
   @doc """
@@ -87,9 +82,7 @@ defmodule Ffaker.En.Name do
   """
   @spec last_name() :: String.t
   def last_name do
-    "data/en/name/last_names"
-    |> list_file
-    |> Enum.random
+    "data/en/name/last_names" |> list_file |> Enum.random
   end
 
   @doc """
@@ -118,11 +111,7 @@ defmodule Ffaker.En.Name do
   """
   @spec prefix() :: String.t
   def prefix do
-    case Gender.gender do
-       "female" -> female_prefix
-       "male" -> male_prefix
-       _ -> other_prefix
-    end
+    [female_prefix, male_prefix, other_prefix] |> Enum.random
   end
 
   @doc """
@@ -148,8 +137,7 @@ defmodule Ffaker.En.Name do
   """
   @spec female_prefix() :: String.t
   def female_prefix do
-    @female_prefixes
-    |> Enum.random
+    @female_prefixes |> Enum.random
   end
 
   @doc """
@@ -162,8 +150,7 @@ defmodule Ffaker.En.Name do
   """
   @spec other_prefix() :: String.t
   def other_prefix do
-    @other_prefixes
-    |> Enum.random
+    @other_prefixes |> Enum.random
   end
 
   @doc """
@@ -176,7 +163,6 @@ defmodule Ffaker.En.Name do
   """
   @spec suffix() :: String.t
   def suffix do
-    @suffixes
-    |> Enum.random
+    @suffixes |> Enum.random
   end
 end
