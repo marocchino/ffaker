@@ -3,7 +3,8 @@ defmodule Ffaker.Matcher do
   import Ffaker, only: [list_file: 2]
 
   def assert_match(regex, actual) do
-    assert Regex.match?(regex, actual), "#{actual} is not match."
+    assert Regex.match?(regex, actual),
+           "#{actual} is not match with #{inspect regex}."
   end
 
   def assert_in_file(actual, file_name, dir_path) do
@@ -15,6 +16,7 @@ defmodule Ffaker.Matcher do
         true ->
           list_file(file_name, dir_path)
       end
-    assert actual in list, "#{actual} is not in data/#{dir_path}/#{file_name}."
+    assert actual in list,
+           "#{actual} is not in `data/#{dir_path}/#{file_name}` file."
   end
 end
