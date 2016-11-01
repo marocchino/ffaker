@@ -18,7 +18,7 @@ defmodule Ffaker do
   """
   @spec list_file(String.t, String.t) :: Enum.t
   def list_file(file_name, dir_path) do
-    file_path = "data/#{dir_path}/#{file_name}"
+    file_path = "#{File.cwd!}/data/#{dir_path}/#{file_name}"
     case File.read(file_path) do
       {:ok, res} ->
         res
