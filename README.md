@@ -14,15 +14,26 @@ The package can be installed as:
 
     ```elixir
     def deps do
-      [{:ffaker, "~> 0.0.1"}]
+      [{:ffaker, "~> 0.0.1", only: [:test]}]
     end
     ```
 
-  2. Ensure `ffaker` is started before your application:
+  2. (Optional) Set seed in `test/test_helper.exs`:
 
     ```elixir
-    def application do
-      [applications: [:ffaker]]
-    end
+    ExUnit.start()
+    ExUnit.configure seed: elem(:os.timestamp, 2)
+    Ffaker.Seed.reset
     ```
 
+## Usage
+
+```elixir
+alias Ffaker.En.Name
+alias Ffaker.En.Internet
+
+Name.name       #=> "Christophe Bartell"
+Internet.email  #=> "kirsten.greenholt@corkeryfisher.info"
+```
+
+[See more →](https://hexdocs.pm/ffaker/api-reference.html)
