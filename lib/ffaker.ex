@@ -18,13 +18,13 @@ defmodule Ffaker do
   """
   @spec list_file(String.t, String.t) :: Enum.t
   def list_file(file_name, dir_path) do
-    file_path = "#{File.cwd!}/data/#{dir_path}/#{file_name}"
+    file_path = "#{__DIR__}/../data/#{dir_path}/#{file_name}"
     case File.read(file_path) do
       {:ok, res} ->
         res
         |> String.trim
         |> String.split("\n")
-      {:error, _} -> raise RuntimeError, message: "#{file_name} not found"
+      {:error, _} -> raise RuntimeError, message: "#{file_path} not found"
     end
   end
 
