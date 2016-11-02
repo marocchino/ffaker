@@ -14,6 +14,7 @@ defmodule Ffaker.EnUs.PhoneNumer do
       iex> Ffaker.EnUs.PhoneNumer.phone_number
       "1-201-345-6789 x235"
   """
+  @spec phone_number() :: String.t
   def phone_number do
     suffix = [" x###", " x####", " x#####", ""]
              |> Enum.random
@@ -31,6 +32,7 @@ defmodule Ffaker.EnUs.PhoneNumer do
       iex> Ffaker.EnUs.PhoneNumer.area_code
       201
   """
+  @spec area_code() :: non_neg_integer
   def area_code do
     code = 201..999 |> Enum.random
     case rem(code, 100) do
@@ -48,6 +50,7 @@ defmodule Ffaker.EnUs.PhoneNumer do
       iex> Ffaker.EnUs.PhoneNumer.exchange_code
       201
   """
+  @spec exchange_code() :: non_neg_integer
   def exchange_code do
     201..999 |> Enum.random
   end
@@ -60,6 +63,7 @@ defmodule Ffaker.EnUs.PhoneNumer do
       iex> Ffaker.EnUs.PhoneNumer.short_phone_number
       "201-345-6789"
   """
+  @spec short_phone_number() :: String.t
   def short_phone_number do
     "#{area_code}-#{exchange_code}-#{numerify("####")}"
   end
@@ -72,6 +76,7 @@ defmodule Ffaker.EnUs.PhoneNumer do
       iex> Ffaker.EnUs.PhoneNumer.phone_calling_code
       "+91"
   """
+  @spec phone_calling_code() :: String.t
   def phone_calling_code do
     "phone_calling_codes" |> list_file(@path) |> Enum.random
   end
@@ -84,6 +89,7 @@ defmodule Ffaker.EnUs.PhoneNumer do
       iex> Ffaker.EnUs.PhoneNumer.imei
       "001245001234569"
   """
+  @spec imei(non_neg_integer) :: String.t
   def imei(numbers) do
     base_digits = "00124500#{numbers}"
     check_digit =

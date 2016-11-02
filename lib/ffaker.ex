@@ -40,6 +40,7 @@ defmodule Ffaker do
       iex> Ffaker.number("##-###")
       "12-345"
   """
+  @spec numerify(String.t) :: String.t
   def numerify(string) do
     string
     |> String.graphemes

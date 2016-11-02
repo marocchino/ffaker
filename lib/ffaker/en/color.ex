@@ -99,7 +99,7 @@ defmodule Ffaker.En.Color do
       iex> Ffaker.En.Color.alpha
       0.45
   """
-  @spec alpha() :: number
+  @spec alpha() :: non_neg_integer
   def alpha do
     Enum.random(0..100) / 100
   end

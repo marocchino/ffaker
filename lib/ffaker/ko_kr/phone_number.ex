@@ -15,6 +15,7 @@ defmodule Ffaker.KoKr.PhoneNumer do
       iex> Ffaker.KoKr.PhoneNumer.phone_number
       "010-1234-5678"
   """
+  @spec phone_number() :: String.t
   def phone_number do
     [home_phone_number, mobile_phone_number] |> Enum.random
   end
@@ -27,6 +28,7 @@ defmodule Ffaker.KoKr.PhoneNumer do
       iex> Ffaker.KoKr.PhoneNumer.home_phone_number
       "02-1234-5678"
   """
+  @spec home_phone_number() :: String.t
   def home_phone_number do
     home_phone_prefix = @home_phone_prefixes |> Enum.random
     numerify("#{home_phone_prefix}-####-####")
@@ -40,6 +42,7 @@ defmodule Ffaker.KoKr.PhoneNumer do
       iex> Ffaker.KoKr.PhoneNumer.mobile_phone_number
       "010-1234-5678"
   """
+  @spec mobile_phone_number() :: String.t
   def mobile_phone_number do
     mobile_phone_prefix = @mobile_phone_prefixes |> Enum.random
     numerify("#{mobile_phone_prefix}-####-####")
@@ -53,6 +56,7 @@ defmodule Ffaker.KoKr.PhoneNumer do
       iex> Ffaker.KoKr.PhoneNumer.international_phone_number
       "+81 10-1234-5678"
   """
+  @spec international_phone_number() :: String.t
   def international_phone_number do
     phone_number |> international
   end
@@ -65,6 +69,7 @@ defmodule Ffaker.KoKr.PhoneNumer do
       iex> Ffaker.KoKr.PhoneNumer.international_home_phone_number
       "+81 10-1234-5678"
   """
+  @spec international_home_phone_number() :: String.t
   def international_home_phone_number do
     home_phone_number |> international
   end
@@ -77,10 +82,12 @@ defmodule Ffaker.KoKr.PhoneNumer do
       iex> Ffaker.KoKr.PhoneNumer.international_mobile_phone_number
       "+81 10-1234-5678"
   """
+  @spec international_mobile_phone_number() :: String.t
   def international_mobile_phone_number do
     mobile_phone_number |> international
   end
 
+  @spec international(String.t) :: String.t
   defp international("0" <> rest) do
     "+81 " <> rest
   end

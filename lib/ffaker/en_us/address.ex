@@ -17,6 +17,7 @@ defmodule Ffaker.EnUs.Address do
       iex> Ffaker.EnUs.Address.zip_code
       "12345"
   """
+  @spec zip_code() :: String.t
   def zip_code do
     ~w(##### #####-####) |> Enum.random |> numerify
   end
@@ -29,6 +30,7 @@ defmodule Ffaker.EnUs.Address do
       iex> Ffaker.EnUs.Address.city
       "New alicetown"
   """
+  @spec city() :: String.t
   def city do
     city_prefix = @city_prefixes |> Enum.random
     city_suffix = "city_suffixes" |> list_file(@path) |> Enum.random
@@ -47,6 +49,7 @@ defmodule Ffaker.EnUs.Address do
       iex> Ffaker.EnUs.Address.neighborhood
       "Candlewood Country Club"
   """
+  @spec neighborhood() :: String.t
   def neighborhood do
     "neighborhoods" |> list_file(@path) |> Enum.random
   end
@@ -59,6 +62,7 @@ defmodule Ffaker.EnUs.Address do
       iex> Ffaker.EnUs.Address.street
       "Hawaii"
   """
+  @spec street() :: String.t
   def street do
     building_number = ~w(### #### ##### ######) |> Enum.random |> numerify
     sec_addr = @sec_addrs |> Enum.random |> numerify
@@ -77,6 +81,7 @@ defmodule Ffaker.EnUs.Address do
       iex> Ffaker.EnUs.Address.state
       "Hawaii"
   """
+  @spec state() :: String.t
   def state do
     "states" |> list_file(@path) |> Enum.random
   end
@@ -89,6 +94,7 @@ defmodule Ffaker.EnUs.Address do
       iex> Ffaker.EnUs.Address.state_abbr
       "HI"
   """
+  @spec state_abbr() :: String.t
   def state_abbr do
     "states_abbrs" |> list_file(@path) |> Enum.random
   end
@@ -101,6 +107,7 @@ defmodule Ffaker.EnUs.Address do
       iex> Ffaker.EnUs.Address.state_and_territory_abbr
       "MS"
   """
+  @spec state_and_territory_abbr() :: String.t
   def state_and_territory_abbr do
     "states_and_territories_abbrs" |> list_file(@path) |> Enum.random
   end
@@ -113,6 +120,7 @@ defmodule Ffaker.EnUs.Address do
       iex> Ffaker.EnUs.Address.continental_state
       "Arizona"
   """
+  @spec continental_state() :: String.t
   def continental_state do
     s = state
     case s in ~w(Hawaii Alaska) do
@@ -129,6 +137,7 @@ defmodule Ffaker.EnUs.Address do
       iex> Ffaker.EnUs.Address.continental_state_abbr
       "AN"
   """
+  @spec continental_state_abbr() :: String.t
   def continental_state_abbr do
     s = state_abbr
     case s in ~w(HI AK) do

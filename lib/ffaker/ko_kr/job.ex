@@ -1,12 +1,12 @@
 defmodule Ffaker.KoKr.Job do
   import Ffaker, only: [list_file: 2]
   @moduledoc """
-  Functions for job data in Korean
+  직업 데이터에 관한 함수가 들어있는 모듈
   """
   @path "ko_kr/job"
 
   @doc """
-  Returns job title
+  직업명을 반환
 
   ## Examples
 

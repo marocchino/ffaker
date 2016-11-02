@@ -2,11 +2,13 @@ defmodule Ffaker.Matcher do
   import ExUnit.Assertions, only: [assert: 2]
   import Ffaker, only: [list_file: 2]
 
+  @spec assert_match(Regex.t, String.t) :: true
   def assert_match(regex, actual) do
     assert Regex.match?(regex, actual),
            "#{actual} is not match with #{inspect regex}."
   end
 
+  @spec assert_in_file(String.t, String.t, String.t) :: true
   def assert_in_file(actual, file_name, dir_path) do
     list =
       cond do

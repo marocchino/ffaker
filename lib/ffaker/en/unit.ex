@@ -13,6 +13,7 @@ defmodule Ffaker.En.Unit do
       iex> Ffaker.En.Unit.time_unit
       "Years"
   """
+  @spec time_unit() :: String.t
   def time_unit do
     @time_units |> Enum.random
   end
@@ -25,6 +26,7 @@ defmodule Ffaker.En.Unit do
       iex> Ffaker.En.Unit.temperature_unit
       "Kelvin"
   """
+  @spec temperature_unit() :: String.t
   def temperature_unit do
     @temperature_units |> Enum.random
   end
@@ -37,6 +39,7 @@ defmodule Ffaker.En.Unit do
       iex> Ffaker.En.Unit.temperature_abbr
       "K"
   """
+  @spec temperature_abbr() :: String.t
   def temperature_abbr do
     temperature_unit |> String.at(0)
   end

@@ -23,7 +23,7 @@ defmodule Ffaker.En.Lorem do
       iex> Ffaker.En.Lorem.characters(3)
       "abc"
   """
-  @spec characters(number) :: String.t
+  @spec characters(non_neg_integer) :: String.t
   def characters(count \\ 255) do
     characters = "characters" |> list_file(@path)
     Enum.reduce(1..count, "", fn(_, acc) ->

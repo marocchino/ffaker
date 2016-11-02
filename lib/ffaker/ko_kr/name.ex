@@ -1,12 +1,12 @@
 defmodule Ffaker.KoKr.Name do
   import Ffaker, only: [list_file: 2]
   @moduledoc """
-  Functions for name data in Korean
+  이름 데이터에 관한 함수가 들어있는 모듈
   """
   @path "ko_kr/name"
 
   @doc """
-  Returns name_with_space
+  공백이 들어간 전체 이름을 반환
 
   ## Examples
 
@@ -19,7 +19,7 @@ defmodule Ffaker.KoKr.Name do
   end
 
   @doc """
-  Returns name
+  전체 이름을 반환
 
   ## Examples
 
@@ -32,7 +32,7 @@ defmodule Ffaker.KoKr.Name do
   end
 
   @doc """
-  Returns first name
+  이름을 반환
 
   ## Examples
 
@@ -45,7 +45,7 @@ defmodule Ffaker.KoKr.Name do
   end
 
   @doc """
-  Returns male first name
+  남자 이름을 반환
 
   ## Examples
 
@@ -58,7 +58,7 @@ defmodule Ffaker.KoKr.Name do
   end
 
   @doc """
-  Returns female first name
+  여자 이름을 반환
 
   ## Examples
 
@@ -71,7 +71,7 @@ defmodule Ffaker.KoKr.Name do
   end
 
   @doc """
-  Returns last name
+  성씨를 반환
 
   ## Examples
 
