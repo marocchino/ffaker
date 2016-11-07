@@ -1,8 +1,10 @@
 defmodule Ffaker.En.Name do
-  import Ffaker, only: [list_file: 2]
   @moduledoc """
   Functions for name data in English
   """
+
+  import Ffaker, only: [list_file: 2]
+
   @path "en/name"
   @suffixes ~w(Jr. Sr. I II III IV V MD DDS PhD DVM)
   @female_prefixes ~w(Mrs. Miss.)
@@ -18,7 +20,7 @@ defmodule Ffaker.En.Name do
   """
   @spec name() :: String.t
   def name do
-    "#{first_name} #{last_name}"
+    "#{first_name()} #{last_name()}"
   end
 
   @doc """
@@ -31,7 +33,7 @@ defmodule Ffaker.En.Name do
   """
   @spec html_safe_name() :: String.t
   def html_safe_name do
-    "#{first_name} #{html_safe_last_name}"
+    "#{first_name()} #{html_safe_last_name()}"
   end
 
   @doc """
@@ -44,7 +46,7 @@ defmodule Ffaker.En.Name do
   """
   @spec first_name() :: String.t
   def first_name do
-    [female_first_name, male_first_name] |> Enum.random
+    [female_first_name(), male_first_name()] |> Enum.random
   end
 
   @doc """
@@ -112,7 +114,7 @@ defmodule Ffaker.En.Name do
   """
   @spec prefix() :: String.t
   def prefix do
-    [female_prefix, male_prefix, other_prefix] |> Enum.random
+    [female_prefix(), male_prefix(), other_prefix()] |> Enum.random
   end
 
   @doc """

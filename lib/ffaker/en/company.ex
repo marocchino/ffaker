@@ -1,9 +1,10 @@
 defmodule Ffaker.En.Company do
-  import Ffaker, only: [list_file: 2]
-  alias Ffaker.En.Name
   @moduledoc """
   Functions for company data in English
   """
+
+  import Ffaker, only: [list_file: 2]
+  alias Ffaker.En.Name
   @path "en/company"
   @suffixes ~w(Inc LLC Group)
   @position_prefixes ~w(Executive Assistant General Associate)
@@ -38,8 +39,7 @@ defmodule Ffaker.En.Company do
   """
   @spec suffix() :: String.t
   def suffix do
-    @suffixes
-    |> Enum.random
+    @suffixes |> Enum.random
   end
 
   @doc """
@@ -52,10 +52,11 @@ defmodule Ffaker.En.Company do
   """
   @spec catch_phrase() :: String.t
   def catch_phrase do
-    pre = "catch_pre" |> list_file(@path) |> Enum.random
-    mid = "catch_mid" |> list_file(@path) |> Enum.random
-    pos = "catch_pos" |> list_file(@path) |> Enum.random
-    "#{pre} #{mid} #{pos}"
+    ~w(catch_pre catch_mid catch_pos)
+    |> Enum.map(fn file_name ->
+      file_name |> list_file(@path) |> Enum.random
+    end)
+    |> Enum.join(" ")
   end
 
   @doc """
@@ -68,10 +69,11 @@ defmodule Ffaker.En.Company do
   """
   @spec bs() :: String.t
   def bs do
-    pre = "bs_pre" |> list_file(@path) |> Enum.random
-    mid = "bs_mid" |> list_file(@path) |> Enum.random
-    pos = "bs_pos" |> list_file(@path) |> Enum.random
-    "#{pre} #{mid} #{pos}"
+    ~w(bs_pre bs_mid bs_pos)
+    |> Enum.map(fn file_name ->
+      file_name |> list_file(@path) |> Enum.random
+    end)
+    |> Enum.join(" ")
   end
 
   @doc """
@@ -86,9 +88,9 @@ defmodule Ffaker.En.Company do
   def position do
     pos = @positions |> Enum.random
     prefix = @position_prefixes |> Enum.random
-    ["#{position_area} #{pos}",
+    ["#{position_area()} #{pos}",
      "#{prefix} #{pos}",
-     "#{prefix} #{position_area} #{pos}"]
+     "#{prefix} #{position_area()} #{pos}"]
     |> Enum.random
   end
 

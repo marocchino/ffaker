@@ -1,8 +1,10 @@
 defmodule Ffaker.KoKr.PhoneNumer do
-  import Ffaker, only: [numerify: 1]
   @moduledoc """
   한국 전화번호 데이터에 관련된 함수가 들어있는 모듈
   """
+
+  import Ffaker, only: [numerify: 1]
+
   @home_phone_prefixes ~w(02 031 032 033 041 042 043 044 049
                           051 052 053 054 055 061 062 063 064)
   @mobile_phone_prefixes ~w(010 011 016 019)
@@ -17,7 +19,7 @@ defmodule Ffaker.KoKr.PhoneNumer do
   """
   @spec phone_number() :: String.t
   def phone_number do
-    [home_phone_number, mobile_phone_number] |> Enum.random
+    [home_phone_number(), mobile_phone_number()] |> Enum.random
   end
 
   @doc """
@@ -31,7 +33,7 @@ defmodule Ffaker.KoKr.PhoneNumer do
   @spec home_phone_number() :: String.t
   def home_phone_number do
     home_phone_prefix = @home_phone_prefixes |> Enum.random
-    numerify("#{home_phone_prefix}-####-####")
+    "#{home_phone_prefix}-####-####" |> numerify
   end
 
   @doc """
@@ -45,7 +47,7 @@ defmodule Ffaker.KoKr.PhoneNumer do
   @spec mobile_phone_number() :: String.t
   def mobile_phone_number do
     mobile_phone_prefix = @mobile_phone_prefixes |> Enum.random
-    numerify("#{mobile_phone_prefix}-####-####")
+    "#{mobile_phone_prefix}-####-####" |> numerify
   end
 
   @doc """
@@ -58,7 +60,7 @@ defmodule Ffaker.KoKr.PhoneNumer do
   """
   @spec international_phone_number() :: String.t
   def international_phone_number do
-    phone_number |> international
+    phone_number() |> international
   end
 
   @doc """
@@ -71,7 +73,7 @@ defmodule Ffaker.KoKr.PhoneNumer do
   """
   @spec international_home_phone_number() :: String.t
   def international_home_phone_number do
-    home_phone_number |> international
+    home_phone_number() |> international
   end
 
   @doc """
@@ -84,7 +86,7 @@ defmodule Ffaker.KoKr.PhoneNumer do
   """
   @spec international_mobile_phone_number() :: String.t
   def international_mobile_phone_number do
-    mobile_phone_number |> international
+    mobile_phone_number() |> international
   end
 
   @spec international(String.t) :: String.t

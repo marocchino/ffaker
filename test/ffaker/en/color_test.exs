@@ -5,41 +5,41 @@ defmodule Ffaker.En.ColorTest do
   @path "en/color"
 
   test "name/0" do
-    assert_in_file(name, "names", @path)
+    assert_in_file(name(), "names", @path)
   end
 
   test "hex_code/0" do
-    assert_match ~r/\A[0-9A-F]{6}\z/, hex_code
+    assert_match ~r/\A[0-9A-F]{6}\z/, hex_code()
   end
 
   test "rgb/0" do
-    assert rgb |> Enum.all?(&(&1 >= 0 and &1 <= 255))
+    assert rgb() |> Enum.all?(&(&1 >= 0 and &1 <= 255))
   end
 
   test "hsl/0" do
-    [hue | sl] = hsl
+    [hue | sl] = hsl()
     assert hue >= 0 and hue <= 360
     assert sl |> Enum.all?(&(Regex.match?(~r/\A\d{1,3}%\z/, &1)))
   end
 
   test "rgba/0" do
-    assert rgba |> Enum.all?(&(&1 >= 0 and &1 <= 255))
-    alpha = Enum.at(rgba, 3)
-    assert alpha >= 0.0 and alpha <= 1.0
+    [r, g, b, a] = rgba()
+    assert r in 0..255
+    assert g in 0..255
+    assert b in 0..255
+    assert a >= 0.0 and a <= 1.0
   end
 
   test "hsla/0" do
-    hue = Enum.at(hsla, 0)
-    saturation = Enum.at(hsla, 1)
-    lightness = Enum.at(hsla, 2)
-    alpha = Enum.at(hsla, 3)
-    assert hue >= 0 and hue <= 360
-    assert_match ~r/\A\d{1,3}%\z/, saturation
-    assert_match ~r/\A\d{1,3}%\z/, lightness
-    assert alpha >= 0.0 and alpha <= 1.0
+    [h, s, l, a] = hsla()
+    assert h in 0..360
+    assert_match ~r/\A\d{1,3}%\z/, s
+    assert_match ~r/\A\d{1,3}%\z/, l
+    assert a >= 0.0 and a <= 1.0, "#{a} is not in 0..1"
   end
 
   test "alpha/0" do
-    assert alpha >= 0.0 and alpha <= 1.0
+    a = alpha()
+    assert a >= 0.0 and a <= 1.0, "#{a} is not in 0..1"
   end
 end

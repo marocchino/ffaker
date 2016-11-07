@@ -1,8 +1,10 @@
 defmodule Ffaker.EnUs.PhoneNumer do
-  import Ffaker, only: [list_file: 2, numerify: 1]
   @moduledoc """
   Functions for US PhoneNumer data in English
   """
+
+  import Ffaker, only: [list_file: 2, numerify: 1]
+
   @path "en_us/phone_number"
 
   @doc """
@@ -16,11 +18,9 @@ defmodule Ffaker.EnUs.PhoneNumer do
   """
   @spec phone_number() :: String.t
   def phone_number do
-    suffix = [" x###", " x####", " x#####", ""]
-             |> Enum.random
-    prefix = ["1-", ""]
-             |> Enum.random
-    "#{prefix}#{short_phone_number}#{numerify(suffix)}"
+    suffix = [" x###", " x####", " x#####", ""] |> Enum.random |> numerify
+    prefix = ["1-", ""] |> Enum.random
+    "#{prefix}#{short_phone_number()}#{suffix}"
   end
 
   @doc """
@@ -34,11 +34,9 @@ defmodule Ffaker.EnUs.PhoneNumer do
   """
   @spec area_code() :: non_neg_integer
   def area_code do
-    code = 201..999 |> Enum.random
-    case rem(code, 100) do
-       11 -> area_code
-       _ -> code
-    end
+    201..999
+    |> Enum.filter(fn code -> rem(code, 100) != 11 end)
+    |> Enum.random
   end
 
   @doc """
@@ -65,7 +63,7 @@ defmodule Ffaker.EnUs.PhoneNumer do
   """
   @spec short_phone_number() :: String.t
   def short_phone_number do
-    "#{area_code}-#{exchange_code}-#{numerify("####")}"
+    "#{area_code()}-#{exchange_code()}-#{numerify("####")}"
   end
 
   @doc """
@@ -93,19 +91,19 @@ defmodule Ffaker.EnUs.PhoneNumer do
   def imei(numbers) do
     base_digits = "00124500#{numbers}"
     check_digit =
-      base_digits
-      |> String.graphemes
-      |> Enum.reduce(0, fn (x, acc) ->
-           num =
-             case String.to_integer(x) do
-                n when rem(n, 2) == 0 -> n * 2
-                n -> n
-             end
-           case rem(acc + num, 10) do
-             0 -> 10
-             n -> n
-           end
-         end)
+      base_digits |> String.graphemes |> Enum.reduce(0, &base_reducer/2)
     "#{base_digits}#{10 - check_digit}"
+  end
+
+  defp base_reducer(x, acc) do
+    num =
+      case String.to_integer(x) do
+         n when rem(n, 2) == 0 -> n * 2
+         n -> n
+      end
+    case rem(acc + num, 10) do
+      0 -> 10
+      n -> n
+    end
   end
 end

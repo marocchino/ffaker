@@ -1,8 +1,10 @@
 defmodule Ffaker.KoKr.Name do
-  import Ffaker, only: [list_file: 2]
   @moduledoc """
   이름 데이터에 관한 함수가 들어있는 모듈
   """
+
+  import Ffaker, only: [list_file: 2]
+
   @path "ko_kr/name"
 
   @doc """
@@ -15,7 +17,7 @@ defmodule Ffaker.KoKr.Name do
   """
   @spec name_with_space() :: String.t
   def name_with_space do
-    "#{last_name} #{first_name}"
+    "#{last_name()} #{first_name()}"
   end
 
   @doc """
@@ -28,7 +30,7 @@ defmodule Ffaker.KoKr.Name do
   """
   @spec name() :: String.t
   def name do
-    "#{last_name}#{first_name}"
+    "#{last_name()}#{first_name()}"
   end
 
   @doc """
@@ -41,7 +43,7 @@ defmodule Ffaker.KoKr.Name do
   """
   @spec first_name() :: String.t
   def first_name do
-    [female_first_name, male_first_name] |> Enum.random
+    [female_first_name(), male_first_name()] |> Enum.random
   end
 
   @doc """

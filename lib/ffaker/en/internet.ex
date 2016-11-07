@@ -1,10 +1,11 @@
 defmodule Ffaker.En.Internet do
-  alias Ffaker.En.Name
-  alias Ffaker.En.Lorem
-
   @moduledoc """
   Functions for internet data in English
   """
+
+  alias Ffaker.En.Name
+  alias Ffaker.En.Lorem
+
   @hosts ~w(gmail.com yahoo.com hotmail.com)
   @free_hosts ~w(gmail.com yahoo.com hotmail.com)
   @disposable_hosts ~w(mailinator.com
@@ -26,7 +27,7 @@ defmodule Ffaker.En.Internet do
   """
   @spec email() :: String.t
   def email do
-    "#{user_name}@#{@hosts |> Enum.random}"
+    "#{user_name()}@#{@hosts |> Enum.random}"
   end
 
   @doc """
@@ -39,7 +40,7 @@ defmodule Ffaker.En.Internet do
   """
   @spec disposable_email() :: String.t
   def disposable_email do
-    "#{user_name}@#{@disposable_hosts |> Enum.random}"
+    "#{user_name()}@#{@disposable_hosts |> Enum.random}"
   end
 
   @doc """
@@ -52,7 +53,7 @@ defmodule Ffaker.En.Internet do
   """
   @spec free_email() :: String.t
   def free_email do
-    "#{user_name}@#{@free_hosts |> Enum.random}"
+    "#{user_name()}@#{@free_hosts |> Enum.random}"
   end
 
   @doc """
@@ -65,7 +66,7 @@ defmodule Ffaker.En.Internet do
   """
   @spec safe_email() :: String.t
   def safe_email do
-    "#{user_name}@example.#{@safe_domain_suffixes |> Enum.random}"
+    "#{user_name()}@example.#{@safe_domain_suffixes |> Enum.random}"
   end
 
   @doc """
@@ -78,8 +79,7 @@ defmodule Ffaker.En.Internet do
   """
   @spec user_name() :: String.t
   def user_name do
-    Name.name
-    |> escape
+    Name.name |> escape
   end
 
   @doc """
@@ -105,7 +105,7 @@ defmodule Ffaker.En.Internet do
   """
   @spec uri(String.t) :: String.t
   def uri(protocol \\ "https") do
-    "#{protocol}://#{domain_name}"
+    "#{protocol}://#{domain_name()}"
   end
 
   @doc """
@@ -181,8 +181,6 @@ defmodule Ffaker.En.Internet do
 
   @spec escape(String.t) :: String.t
   defp escape(str) do
-    str
-    |> String.downcase
-    |> String.replace(~r([^a-z]), ".")
+    str |> String.downcase |> String.replace(~r([^a-z]), ".")
   end
 end

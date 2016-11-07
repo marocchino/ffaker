@@ -5,6 +5,6 @@ defmodule Ffaker.KoKr.JobTest do
   @path "ko_kr/job"
 
   test "title/0" do
-    assert_in_file(title, "titles", @path)
+    assert_in_file(title(), "titles", @path)
   end
 end

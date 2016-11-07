@@ -1,10 +1,11 @@
 defmodule Ffaker.En.Lorem do
-  import Ffaker, only: [list_file: 2]
   @moduledoc """
   Functions for lorem data in English
   """
-  @path "en/lorem"
 
+  import Ffaker, only: [list_file: 2]
+
+  @path "en/lorem"
 
   @doc """
   Returns characters
@@ -61,7 +62,7 @@ defmodule Ffaker.En.Lorem do
   def sentence(words_range \\ 4..8) do
     count = Enum.random(words_range)
     (1..count
-     |> Enum.map(fn(_) -> word end)
+     |> Enum.map(fn(_) -> word() end)
      |> Enum.join(" ")
      |> String.capitalize) <> "."
   end
@@ -85,7 +86,7 @@ defmodule Ffaker.En.Lorem do
   def paragraph(sentences_range \\ 3..6) do
     count = Enum.random(sentences_range)
     1..count
-    |> Enum.map(fn(_) -> sentence end)
+    |> Enum.map(fn(_) -> sentence() end)
     |> Enum.join(" ")
   end
 end

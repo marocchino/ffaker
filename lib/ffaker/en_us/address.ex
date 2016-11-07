@@ -1,9 +1,10 @@
 defmodule Ffaker.EnUs.Address do
-  import Ffaker, only: [list_file: 2, numerify: 1]
-  alias Ffaker.En.Name
   @moduledoc """
   Functions for US Address data in English
   """
+
+  import Ffaker, only: [list_file: 2, numerify: 1]
+  alias Ffaker.En.Name
 
   @path "en_us/address"
   @city_prefixes ~w(North East West South New Lake Port)
@@ -66,10 +67,7 @@ defmodule Ffaker.EnUs.Address do
   def street do
     building_number = ~w(### #### ##### ######) |> Enum.random |> numerify
     sec_addr = @sec_addrs |> Enum.random |> numerify
-    street_suffix =
-      "street_suffixes"
-      |> list_file(@path)
-      |> Enum.random
+    street_suffix = "street_suffixes" |> list_file(@path) |> Enum.random
     "#{building_number} #{Name.first_name} #{street_suffix}#{sec_addr}"
   end
 
@@ -122,11 +120,10 @@ defmodule Ffaker.EnUs.Address do
   """
   @spec continental_state() :: String.t
   def continental_state do
-    s = state
-    case s in ~w(Hawaii Alaska) do
-       true -> continental_state
-       false -> s
-    end
+    "states"
+    |> list_file(@path)
+    |> Enum.filter(fn s -> not s in ~w(Hawaii Alaska) end)
+    |> Enum.random
   end
 
   @doc """
@@ -139,10 +136,9 @@ defmodule Ffaker.EnUs.Address do
   """
   @spec continental_state_abbr() :: String.t
   def continental_state_abbr do
-    s = state_abbr
-    case s in ~w(HI AK) do
-       true -> continental_state_abbr
-       false -> s
-    end
+    "states_abbrs"
+    |> list_file(@path)
+    |> Enum.filter(fn s -> not s in ~w(HI AK) end)
+    |> Enum.random
   end
 end

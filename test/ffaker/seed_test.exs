@@ -3,9 +3,9 @@ defmodule Ffaker.SeedTest do
   import Ffaker.Seed
 
   test "reset/0" do
-    reset
+    reset()
     first = [1..10, 1..10, 1..10] |> Enum.map(&Enum.random/1)
-    reset
+    reset()
     second = [1..10, 1..10, 1..10] |> Enum.map(&Enum.random/1)
     assert first == second
   end

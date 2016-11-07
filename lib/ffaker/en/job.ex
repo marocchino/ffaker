@@ -1,8 +1,10 @@
 defmodule Ffaker.En.Job do
-  import Ffaker, only: [list_file: 2]
   @moduledoc """
   Functions for job data in English
   """
+
+  import Ffaker, only: [list_file: 2]
+
   @path "en/job"
   @suffixes ~w(Jr. Sr. I II III IV V MD DDS PhD DVM)
   @female_prefixes ~w(Mrs. Miss.)

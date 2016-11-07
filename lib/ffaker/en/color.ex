@@ -1,8 +1,10 @@
 defmodule Ffaker.En.Color do
-  import Ffaker, only: [list_file: 2]
   @moduledoc """
   Functions for color data in English
   """
+
+  import Ffaker, only: [list_file: 2]
+
   @colors ~w(female male unknown)
   @path "en/color"
 
@@ -45,8 +47,7 @@ defmodule Ffaker.En.Color do
   """
   @spec rgb() :: Enum.t
   def rgb do
-    color = Enum.random(0..0xffffff)
-    [div(color, 0x10000), rem(div(color, 0x100), 0x100), rem(color, 0x100)]
+    0..2 |> Enum.map(fn _ -> 0..255 |> Enum.random end)
   end
 
   @doc """
@@ -59,10 +60,9 @@ defmodule Ffaker.En.Color do
   """
   @spec hsl() :: Enum.t
   def hsl do
-    h = Enum.random(0..360)
-    s = "#{Enum.random(0..100)}%"
-    l = "#{Enum.random(0..100)}%"
-    [h, s, l]
+    h = 0..360 |> Enum.random
+    sl = 0..1 |> Enum.map(fn _ -> "#{0..100 |> Enum.random}%" end)
+    [h | sl]
   end
 
   @doc """
@@ -75,9 +75,8 @@ defmodule Ffaker.En.Color do
   """
   @spec rgba() :: Enum.t
   def rgba do
-    rgb ++ [alpha]
+    rgb() ++ [alpha()]
   end
-
 
   @doc """
   Returns hsla list
@@ -89,8 +88,9 @@ defmodule Ffaker.En.Color do
   """
   @spec hsla() :: Enum.t
   def hsla do
-    hsl ++ [alpha]
+    hsl() ++ [alpha()]
   end
+
   @doc """
   Returns alpha number
 
@@ -101,6 +101,6 @@ defmodule Ffaker.En.Color do
   """
   @spec alpha() :: non_neg_integer
   def alpha do
-    Enum.random(0..100) / 100
+    (0..100 |> Enum.random) / 100
   end
 end

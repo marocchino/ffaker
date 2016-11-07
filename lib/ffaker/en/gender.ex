@@ -2,6 +2,7 @@ defmodule Ffaker.En.Gender do
   @moduledoc """
   Functions for gender data in English
   """
+
   @genders ~w(female male unknown)
 
   @doc """
@@ -14,8 +15,7 @@ defmodule Ffaker.En.Gender do
   """
   @spec gender() :: String.t
   def gender do
-    @genders
-    |> Enum.random
+    @genders |> Enum.random
   end
 
   @doc """

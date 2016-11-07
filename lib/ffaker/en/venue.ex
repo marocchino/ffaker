@@ -1,10 +1,12 @@
 defmodule Ffaker.En.Venue do
-  import Ffaker, only: [list_file: 2]
   @moduledoc """
   Functions for venue name
   """
-  @colors ~w(female male unknown)
+
+  import Ffaker, only: [list_file: 2]
+
   @path "en/venue"
+  @colors ~w(female male unknown)
 
   @doc """
   Returns venue

@@ -2,6 +2,7 @@ defmodule Ffaker.En.Unit do
   @moduledoc """
   Functions for units in English
   """
+
   @time_units ~w(Years Days Hours Minutes Seconds Milliseconds)
   @temperature_units ~w(Kelvin Celsius Fahrenheit)
 
