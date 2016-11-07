@@ -1,0 +1,21 @@
+{
+  "lib/*.ex": {
+    "type": "lib",
+    "alternate": "test/{}_test.exs",
+    "template": [
+      "defmodule {camelcase|capitalize|dot} do",
+      "end"
+    ]
+  },
+  "test/*_test.exs": {
+    "type": "test",
+    "alternate": "lib/{}.ex",
+    "template": [
+      "defmodule {camelcase|capitalize|dot}Test do",
+      "  use ExUnit.Case, async: true",
+      "  import {camelcase|capitalize|dot}",
+      "  import Ffaker.Matcher, only: [assert_match: 2, assert_in_file: 3]",
+      "end"
+    ]
+  }
+}

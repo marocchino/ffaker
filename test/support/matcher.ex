@@ -11,12 +11,10 @@ defmodule Ffaker.Matcher do
   @spec assert_in_file(String.t, String.t, String.t) :: true
   def assert_in_file(actual, file_name, dir_path) do
     list =
-      cond do
-        is_list(file_name) ->
-          file_name
-          |> Enum.flat_map(&list_file(&1, dir_path))
-        true ->
-          list_file(file_name, dir_path)
+      if is_list(file_name) do
+        file_name |> Enum.flat_map(&list_file(&1, dir_path))
+      else
+        list_file(file_name, dir_path)
       end
     assert actual in list,
            "#{actual} is not in `data/#{dir_path}/#{file_name}` file."

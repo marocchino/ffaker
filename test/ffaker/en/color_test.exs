@@ -17,7 +17,7 @@ defmodule Ffaker.En.ColorTest do
   end
 
   test "hsl/0" do
-    [hue | sl]= hsl
+    [hue | sl] = hsl
     assert hue >= 0 and hue <= 360
     assert sl |> Enum.all?(&(Regex.match?(~r/\A\d{1,3}%\z/, &1)))
   end
