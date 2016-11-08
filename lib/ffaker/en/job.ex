@@ -20,7 +20,7 @@ defmodule Ffaker.En.Job do
   """
   @spec title() :: String.t
   def title do
-    "#{prefix} #{adj} #{noun}"
+    "#{prefix()} #{adj()} #{noun()}"
   end
 
   @doc """

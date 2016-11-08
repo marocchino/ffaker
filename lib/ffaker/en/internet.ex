@@ -27,7 +27,7 @@ defmodule Ffaker.En.Internet do
   """
   @spec email() :: String.t
   def email do
-    "#{user_name()}@#{@hosts |> Enum.random}"
+    "#{user_name()}@#{Enum.random(@hosts )}"
   end
 
   @doc """
@@ -40,7 +40,7 @@ defmodule Ffaker.En.Internet do
   """
   @spec disposable_email() :: String.t
   def disposable_email do
-    "#{user_name()}@#{@disposable_hosts |> Enum.random}"
+    "#{user_name()}@#{Enum.random(@disposable_hosts)}"
   end
 
   @doc """
@@ -53,7 +53,7 @@ defmodule Ffaker.En.Internet do
   """
   @spec free_email() :: String.t
   def free_email do
-    "#{user_name()}@#{@free_hosts |> Enum.random}"
+    "#{user_name()}@#{Enum.random(@free_hosts)}"
   end
 
   @doc """
@@ -66,7 +66,7 @@ defmodule Ffaker.En.Internet do
   """
   @spec safe_email() :: String.t
   def safe_email do
-    "#{user_name()}@example.#{@safe_domain_suffixes |> Enum.random}"
+    "#{user_name()}@example.#{Enum.random(@safe_domain_suffixes)}"
   end
 
   @doc """
@@ -79,7 +79,7 @@ defmodule Ffaker.En.Internet do
   """
   @spec user_name() :: String.t
   def user_name do
-    Name.name |> escape
+    escape(Name.name)
   end
 
   @doc """
@@ -92,7 +92,7 @@ defmodule Ffaker.En.Internet do
   """
   @spec domain_name() :: String.t
   def domain_name do
-    "#{Name.last_name |> escape}#{@domain_suffixes |> Enum.random}"
+    "#{escape(Name.last_name)}#{Enum.random(@domain_suffixes)}"
   end
 
   @doc """
@@ -137,7 +137,7 @@ defmodule Ffaker.En.Internet do
             2..2
             |> Lorem.sentence
             |> String.trim(".")
-    glue = glue || @slug_delimiters |> Enum.random
+    glue = glue || Enum.random(@slug_delimiters)
 
     words
     |> String.downcase
@@ -154,9 +154,9 @@ defmodule Ffaker.En.Internet do
   """
   @spec password(Range.t) :: String.t
   def password(length_range \\ 8..16) do
-    length = length_range |> Enum.random
+    length = Enum.random(length_range)
     1..length
-    |> Enum.map(fn _ -> ?a..?z |> Enum.random end)
+    |> Enum.map(fn _ -> Enum.random(?a..?z) end)
     |> to_string
 
   end

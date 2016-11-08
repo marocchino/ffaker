@@ -15,7 +15,7 @@ defmodule Ffaker.En.Gender do
   """
   @spec gender() :: String.t
   def gender do
-    @genders |> Enum.random
+    Enum.random(@genders)
   end
 
   @doc """
@@ -28,7 +28,7 @@ defmodule Ffaker.En.Gender do
   """
   @spec female?() :: boolean
   def female? do
-    gender == "female"
+    gender() == "female"
   end
 
   @doc """
@@ -41,7 +41,7 @@ defmodule Ffaker.En.Gender do
   """
   @spec male?() :: boolean
   def male? do
-    gender == "male"
+    gender() == "male"
   end
 
   @doc """
@@ -54,6 +54,6 @@ defmodule Ffaker.En.Gender do
   """
   @spec unknown?() :: boolean
   def unknown? do
-    gender == "unknown"
+    gender() == "unknown"
   end
 end

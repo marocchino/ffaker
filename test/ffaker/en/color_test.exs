@@ -13,13 +13,13 @@ defmodule Ffaker.En.ColorTest do
   end
 
   test "rgb/0" do
-    assert rgb() |> Enum.all?(&(&1 >= 0 and &1 <= 255))
+    assert Enum.all?(rgb(), &(&1 >= 0 and &1 <= 255))
   end
 
   test "hsl/0" do
     [hue | sl] = hsl()
     assert hue >= 0 and hue <= 360
-    assert sl |> Enum.all?(&(Regex.match?(~r/\A\d{1,3}%\z/, &1)))
+    assert Enum.all?(sl, &Regex.match?(~r/\A\d{1,3}%\z/, &1))
   end
 
   test "rgba/0" do

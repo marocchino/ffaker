@@ -43,7 +43,7 @@ defmodule Ffaker.KoKr.Name do
   """
   @spec first_name() :: String.t
   def first_name do
-    [female_first_name(), male_first_name()] |> Enum.random
+    Enum.random([female_first_name(), male_first_name()])
   end
 
   @doc """

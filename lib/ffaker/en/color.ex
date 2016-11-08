@@ -47,7 +47,7 @@ defmodule Ffaker.En.Color do
   """
   @spec rgb() :: Enum.t
   def rgb do
-    0..2 |> Enum.map(fn _ -> 0..255 |> Enum.random end)
+    Enum.map(0..2, fn _ -> Enum.random(0..255) end)
   end
 
   @doc """
@@ -60,8 +60,8 @@ defmodule Ffaker.En.Color do
   """
   @spec hsl() :: Enum.t
   def hsl do
-    h = 0..360 |> Enum.random
-    sl = 0..1 |> Enum.map(fn _ -> "#{0..100 |> Enum.random}%" end)
+    h = Enum.random(0..360)
+    sl = Enum.map(0..1, fn _ -> "#{Enum.random(0..100)}%" end)
     [h | sl]
   end
 
@@ -101,6 +101,6 @@ defmodule Ffaker.En.Color do
   """
   @spec alpha() :: non_neg_integer
   def alpha do
-    (0..100 |> Enum.random) / 100
+    Enum.random(0..100) / 100
   end
 end

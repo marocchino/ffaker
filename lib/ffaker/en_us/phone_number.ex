@@ -19,7 +19,7 @@ defmodule Ffaker.EnUs.PhoneNumer do
   @spec phone_number() :: String.t
   def phone_number do
     suffix = [" x###", " x####", " x#####", ""] |> Enum.random |> numerify
-    prefix = ["1-", ""] |> Enum.random
+    prefix = Enum.random(["1-", ""])
     "#{prefix}#{short_phone_number()}#{suffix}"
   end
 
@@ -50,7 +50,7 @@ defmodule Ffaker.EnUs.PhoneNumer do
   """
   @spec exchange_code() :: non_neg_integer
   def exchange_code do
-    201..999 |> Enum.random
+    Enum.random(201..999)
   end
 
   @doc """

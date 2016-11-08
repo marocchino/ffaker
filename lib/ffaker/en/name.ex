@@ -140,7 +140,7 @@ defmodule Ffaker.En.Name do
   """
   @spec female_prefix() :: String.t
   def female_prefix do
-    @female_prefixes |> Enum.random
+    Enum.random(@female_prefixes)
   end
 
   @doc """
@@ -153,7 +153,7 @@ defmodule Ffaker.En.Name do
   """
   @spec other_prefix() :: String.t
   def other_prefix do
-    @other_prefixes |> Enum.random
+    Enum.random(@other_prefixes)
   end
 
   @doc """
@@ -166,6 +166,6 @@ defmodule Ffaker.En.Name do
   """
   @spec suffix() :: String.t
   def suffix do
-    @suffixes |> Enum.random
+    Enum.random(@suffixes)
   end
 end

@@ -26,7 +26,7 @@ defmodule Ffaker.En.Lorem do
   """
   @spec characters(non_neg_integer) :: String.t
   def characters(count \\ 255) do
-    characters = "characters" |> list_file(@path)
+    characters = list_file("characters", @path)
     Enum.reduce(1..count, "", fn(_, acc) ->
       acc <> Enum.random(characters)
     end)

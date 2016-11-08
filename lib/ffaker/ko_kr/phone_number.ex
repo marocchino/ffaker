@@ -19,7 +19,7 @@ defmodule Ffaker.KoKr.PhoneNumer do
   """
   @spec phone_number() :: String.t
   def phone_number do
-    [home_phone_number(), mobile_phone_number()] |> Enum.random
+    Enum.random([home_phone_number(), mobile_phone_number()])
   end
 
   @doc """
@@ -32,8 +32,8 @@ defmodule Ffaker.KoKr.PhoneNumer do
   """
   @spec home_phone_number() :: String.t
   def home_phone_number do
-    home_phone_prefix = @home_phone_prefixes |> Enum.random
-    "#{home_phone_prefix}-####-####" |> numerify
+    home_phone_prefix = Enum.random(@home_phone_prefixes)
+    numerify("#{home_phone_prefix}-####-####")
   end
 
   @doc """
@@ -46,8 +46,8 @@ defmodule Ffaker.KoKr.PhoneNumer do
   """
   @spec mobile_phone_number() :: String.t
   def mobile_phone_number do
-    mobile_phone_prefix = @mobile_phone_prefixes |> Enum.random
-    "#{mobile_phone_prefix}-####-####" |> numerify
+    mobile_phone_prefix = Enum.random(@mobile_phone_prefixes)
+    numerify("#{mobile_phone_prefix}-####-####")
   end
 
   @doc """
@@ -60,7 +60,7 @@ defmodule Ffaker.KoKr.PhoneNumer do
   """
   @spec international_phone_number() :: String.t
   def international_phone_number do
-    phone_number() |> international
+    international(phone_number())
   end
 
   @doc """
@@ -73,7 +73,7 @@ defmodule Ffaker.KoKr.PhoneNumer do
   """
   @spec international_home_phone_number() :: String.t
   def international_home_phone_number do
-    home_phone_number() |> international
+    international(home_phone_number())
   end
 
   @doc """
@@ -86,7 +86,7 @@ defmodule Ffaker.KoKr.PhoneNumer do
   """
   @spec international_mobile_phone_number() :: String.t
   def international_mobile_phone_number do
-    mobile_phone_number() |> international
+    international(mobile_phone_number())
   end
 
   @spec international(String.t) :: String.t

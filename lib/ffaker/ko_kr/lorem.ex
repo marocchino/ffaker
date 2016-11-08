@@ -35,7 +35,7 @@ defmodule Ffaker.KoKr.Lorem do
   """
   @spec sentence(Enum.t) :: String.t
   def sentence(words_range \\ 4..8) do
-    count = words_range |> Enum.random
+    count = Enum.random(words_range)
     (1..count |> Enum.map(fn(_) -> word() end) |> Enum.join(" ")) <> "."
   end
 
@@ -57,7 +57,7 @@ defmodule Ffaker.KoKr.Lorem do
   """
   @spec paragraph(Enum.t) :: String.t
   def paragraph(sentences_range \\ 3..6) do
-    count = sentences_range |> Enum.random
+    count = Enum.random(sentences_range)
     1..count |> Enum.map(fn(_) -> sentence() end) |> Enum.join(" ")
   end
 end

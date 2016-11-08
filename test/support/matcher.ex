@@ -12,7 +12,7 @@ defmodule Ffaker.Matcher do
   def assert_in_file(actual, file_name, dir_path) do
     list =
       if is_list(file_name) do
-        file_name |> Enum.flat_map(&list_file(&1, dir_path))
+        Enum.flat_map(file_name, &list_file(&1, dir_path))
       else
         list_file(file_name, dir_path)
       end

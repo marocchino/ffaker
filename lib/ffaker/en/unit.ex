@@ -16,7 +16,7 @@ defmodule Ffaker.En.Unit do
   """
   @spec time_unit() :: String.t
   def time_unit do
-    @time_units |> Enum.random
+    Enum.random(@time_units)
   end
 
   @doc """
@@ -29,7 +29,7 @@ defmodule Ffaker.En.Unit do
   """
   @spec temperature_unit() :: String.t
   def temperature_unit do
-    @temperature_units |> Enum.random
+    Enum.random(@temperature_units)
   end
 
   @doc """
@@ -42,6 +42,6 @@ defmodule Ffaker.En.Unit do
   """
   @spec temperature_abbr() :: String.t
   def temperature_abbr do
-    temperature_unit |> String.at(0)
+    String.at(temperature_unit, 0)
   end
 end

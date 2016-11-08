@@ -39,7 +39,7 @@ defmodule Ffaker.En.Company do
   """
   @spec suffix() :: String.t
   def suffix do
-    @suffixes |> Enum.random
+    Enum.random(@suffixes)
   end
 
   @doc """
@@ -86,8 +86,8 @@ defmodule Ffaker.En.Company do
   """
   @spec position() :: String.t
   def position do
-    pos = @positions |> Enum.random
-    prefix = @position_prefixes |> Enum.random
+    pos = Enum.random(@positions)
+    prefix = Enum.random(@position_prefixes)
     ["#{position_area()} #{pos}",
      "#{prefix} #{pos}",
      "#{prefix} #{position_area()} #{pos}"]
