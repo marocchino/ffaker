@@ -1,9 +1,8 @@
 defmodule Ffaker.EnUs.AddressTest do
   use ExUnit.Case, async: true
+  use Ffaker
   import Ffaker.EnUs.Address
-  import Ffaker.Matcher, only: [assert_match: 2, assert_in_file: 3]
-
-  @path "en_us/address"
+  import Ffaker.Matcher, only: [assert_match: 2]
 
   test "zip_code/0" do
     assert_match ~r/\A\d{5}(?:-\d{4})?\z/, zip_code()
@@ -14,7 +13,7 @@ defmodule Ffaker.EnUs.AddressTest do
   end
 
   test "neighborhood/0" do
-    assert_in_file(neighborhood(), "neighborhoods", @path)
+    assert neighborhood() in ~F(neighborhoods)
   end
 
   test "street/0" do
@@ -22,27 +21,26 @@ defmodule Ffaker.EnUs.AddressTest do
   end
 
   test "state/0" do
-    assert_in_file(state(), "states", @path)
+    assert state() in ~F(states)
   end
 
   test "state_abbr/0" do
-    assert_in_file(state_abbr(), "states_abbrs", @path)
+    assert state_abbr() in ~F(states_abbrs)
   end
 
   test "state_and_territory_abbr/0" do
-    assert_in_file(state_and_territory_abbr(),
-                   "states_and_territories_abbrs", @path)
+    assert state_and_territory_abbr() in ~F(states_and_territories_abbrs)
   end
 
   test "continental_state/0" do
     actual = continental_state()
-    assert_in_file(actual, "states", @path)
+    assert actual in ~F(states)
     refute actual in ~w(Hawaii Alaska)
   end
 
   test "continental_state_abbr/0" do
     actual = continental_state_abbr()
-    assert_in_file(actual, "states_abbrs", @path)
+    assert actual in ~F(states_abbrs)
     refute actual in ~w(HI AK)
   end
 end

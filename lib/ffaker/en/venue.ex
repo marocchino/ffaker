@@ -1,14 +1,13 @@
 defmodule Ffaker.En.Venue do
-  @moduledoc """
+  @moduledoc"""
   Functions for venue name
   """
 
-  import Ffaker, only: [list_file: 2]
+  use Ffaker
 
-  @path "en/venue"
   @colors ~w(female male unknown)
 
-  @doc """
+  @doc"""
   Returns venue
 
   ## Examples
@@ -18,6 +17,6 @@ defmodule Ffaker.En.Venue do
   """
   @spec name() :: String.t
   def name do
-    "names" |> list_file(@path) |> Enum.random
+    Enum.random(~F(names))
   end
 end

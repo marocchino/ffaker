@@ -1,16 +1,15 @@
 defmodule Ffaker.En.Company do
-  @moduledoc """
+  @moduledoc"""
   Functions for company data in English
   """
 
-  import Ffaker, only: [list_file: 2]
+  use Ffaker
   alias Ffaker.En.Name
-  @path "en/company"
   @suffixes ~w(Inc LLC Group)
   @position_prefixes ~w(Executive Assistant General Associate)
   @positions ~w(President Manager Director Secretary Consultant)
 
-  @doc """
+  @doc"""
   Returns company name
 
   ## Examples
@@ -29,7 +28,7 @@ defmodule Ffaker.En.Company do
     |> Enum.random
   end
 
-  @doc """
+  @doc"""
   Returns company suffix
 
   ## Examples
@@ -42,7 +41,7 @@ defmodule Ffaker.En.Company do
     Enum.random(@suffixes)
   end
 
-  @doc """
+  @doc"""
   Returns company catch phrase
 
   ## Examples
@@ -52,14 +51,12 @@ defmodule Ffaker.En.Company do
   """
   @spec catch_phrase() :: String.t
   def catch_phrase do
-    ~w(catch_pre catch_mid catch_pos)
-    |> Enum.map(fn file_name ->
-      file_name |> list_file(@path) |> Enum.random
-    end)
+    [~F(catch_pre), ~F(catch_mid), ~F(catch_pos)]
+    |> Enum.map(&Enum.random/1)
     |> Enum.join(" ")
   end
 
-  @doc """
+  @doc"""
   Returns company bs
 
   ## Examples
@@ -69,14 +66,12 @@ defmodule Ffaker.En.Company do
   """
   @spec bs() :: String.t
   def bs do
-    ~w(bs_pre bs_mid bs_pos)
-    |> Enum.map(fn file_name ->
-      file_name |> list_file(@path) |> Enum.random
-    end)
+    [~F(bs_pre), ~F(bs_mid), ~F(bs_pos)]
+    |> Enum.map(&Enum.random/1)
     |> Enum.join(" ")
   end
 
-  @doc """
+  @doc"""
   Returns company position
 
   ## Examples
@@ -94,7 +89,7 @@ defmodule Ffaker.En.Company do
     |> Enum.random
   end
 
-  @doc """
+  @doc"""
   Returns company position area
 
   ## Examples
@@ -104,6 +99,6 @@ defmodule Ffaker.En.Company do
   """
   @spec position_area() :: String.t
   def position_area do
-    "position_areas" |> list_file(@path) |> Enum.random
+    Enum.random(~F(position_areas))
   end
 end

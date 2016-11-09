@@ -1,13 +1,11 @@
 defmodule Ffaker.En.Lorem do
-  @moduledoc """
+  @moduledoc"""
   Functions for lorem data in English
   """
 
-  import Ffaker, only: [list_file: 2]
+  use Ffaker
 
-  @path "en/lorem"
-
-  @doc """
+  @doc"""
   Returns characters
 
   ## Parameters
@@ -26,13 +24,13 @@ defmodule Ffaker.En.Lorem do
   """
   @spec characters(non_neg_integer) :: String.t
   def characters(count \\ 255) do
-    characters = list_file("characters", @path)
+    characters = ~F(characters)
     Enum.reduce(1..count, "", fn(_, acc) ->
       acc <> Enum.random(characters)
     end)
   end
 
-  @doc """
+  @doc"""
   Returns word
 
   ## Examples
@@ -42,10 +40,10 @@ defmodule Ffaker.En.Lorem do
   """
   @spec word :: String.t
   def word do
-    "words" |> list_file(@path) |> Enum.random
+    Enum.random(~F(words))
   end
 
-  @doc """
+  @doc"""
   Returns sentence
 
   ## Parameters
@@ -67,7 +65,7 @@ defmodule Ffaker.En.Lorem do
      |> String.capitalize) <> "."
   end
 
-  @doc """
+  @doc"""
   Returns paragraph
 
   ## Parameters

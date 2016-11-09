@@ -1,16 +1,16 @@
 defmodule Ffaker.EnUs.Address do
-  @moduledoc """
+  @moduledoc"""
   Functions for US Address data in English
   """
 
-  import Ffaker, only: [list_file: 2, numerify: 1]
+  use Ffaker
+  import Ffaker, only: [numerify: 1]
   alias Ffaker.En.Name
 
-  @path "en_us/address"
   @city_prefixes ~w(North East West South New Lake Port)
   @sec_addrs [" Apt. ###", " Suite ###", ""]
 
-  @doc """
+  @doc"""
   Returns zip_code
 
   ## Examples
@@ -23,7 +23,7 @@ defmodule Ffaker.EnUs.Address do
     ~w(##### #####-####) |> Enum.random |> numerify
   end
 
-  @doc """
+  @doc"""
   Returns city
 
   ## Examples
@@ -34,7 +34,7 @@ defmodule Ffaker.EnUs.Address do
   @spec city() :: String.t
   def city do
     city_prefix = @city_prefixes |> Enum.random
-    city_suffix = "city_suffixes" |> list_file(@path) |> Enum.random
+    city_suffix = Enum.random(~F(city_suffixes))
     first_name = Name.first_name
     ["#{first_name}#{city_suffix}",
      "#{city_prefix} #{first_name}",
@@ -42,7 +42,7 @@ defmodule Ffaker.EnUs.Address do
     |> Enum.random
   end
 
-  @doc """
+  @doc"""
   Returns neighborhood
 
   ## Examples
@@ -52,10 +52,10 @@ defmodule Ffaker.EnUs.Address do
   """
   @spec neighborhood() :: String.t
   def neighborhood do
-    "neighborhoods" |> list_file(@path) |> Enum.random
+    Enum.random(~F(neighborhoods))
   end
 
-  @doc """
+  @doc"""
   Returns street
 
   ## Examples
@@ -67,11 +67,11 @@ defmodule Ffaker.EnUs.Address do
   def street do
     building_number = ~w(### #### ##### ######) |> Enum.random |> numerify
     sec_addr = @sec_addrs |> Enum.random |> numerify
-    street_suffix = "street_suffixes" |> list_file(@path) |> Enum.random
+    street_suffix = Enum.random(~F(street_suffixes))
     "#{building_number} #{Name.first_name} #{street_suffix}#{sec_addr}"
   end
 
-  @doc """
+  @doc"""
   Returns states
 
   ## Examples
@@ -81,10 +81,10 @@ defmodule Ffaker.EnUs.Address do
   """
   @spec state() :: String.t
   def state do
-    "states" |> list_file(@path) |> Enum.random
+    Enum.random(~F(states))
   end
 
-  @doc """
+  @doc"""
   Returns state_abbr
 
   ## Examples
@@ -94,10 +94,10 @@ defmodule Ffaker.EnUs.Address do
   """
   @spec state_abbr() :: String.t
   def state_abbr do
-    "states_abbrs" |> list_file(@path) |> Enum.random
+    Enum.random(~F(states_abbrs))
   end
 
-  @doc """
+  @doc"""
   Returns state_and_territory_abbr
 
   ## Examples
@@ -107,10 +107,10 @@ defmodule Ffaker.EnUs.Address do
   """
   @spec state_and_territory_abbr() :: String.t
   def state_and_territory_abbr do
-    "states_and_territories_abbrs" |> list_file(@path) |> Enum.random
+    Enum.random(~F(states_and_territories_abbrs))
   end
 
-  @doc """
+  @doc"""
   Returns state except Hawaii and Alaska
 
   ## Examples
@@ -120,13 +120,12 @@ defmodule Ffaker.EnUs.Address do
   """
   @spec continental_state() :: String.t
   def continental_state do
-    "states"
-    |> list_file(@path)
+    ~F(states)
     |> Enum.filter(fn s -> not s in ~w(Hawaii Alaska) end)
     |> Enum.random
   end
 
-  @doc """
+  @doc"""
   Returns state abbr except HI and AK
 
   ## Examples
@@ -136,8 +135,7 @@ defmodule Ffaker.EnUs.Address do
   """
   @spec continental_state_abbr() :: String.t
   def continental_state_abbr do
-    "states_abbrs"
-    |> list_file(@path)
+    ~F(states_abbrs)
     |> Enum.filter(fn s -> not s in ~w(HI AK) end)
     |> Enum.random
   end

@@ -1,5 +1,5 @@
 defmodule Ffaker.KoKr.PhoneNumer do
-  @moduledoc """
+  @moduledoc"""
   한국 전화번호 데이터에 관련된 함수가 들어있는 모듈
   """
 
@@ -9,7 +9,7 @@ defmodule Ffaker.KoKr.PhoneNumer do
                           051 052 053 054 055 061 062 063 064)
   @mobile_phone_prefixes ~w(010 011 016 019)
 
-  @doc """
+  @doc"""
   전화 번호를 반환
 
   ## 예제
@@ -22,7 +22,7 @@ defmodule Ffaker.KoKr.PhoneNumer do
     Enum.random([home_phone_number(), mobile_phone_number()])
   end
 
-  @doc """
+  @doc"""
   자택, 직장 전화 번호를 반환
 
   ## Examples
@@ -36,7 +36,7 @@ defmodule Ffaker.KoKr.PhoneNumer do
     numerify("#{home_phone_prefix}-####-####")
   end
 
-  @doc """
+  @doc"""
   휴대 전화 번호를 반환
 
   ## Examples
@@ -50,7 +50,7 @@ defmodule Ffaker.KoKr.PhoneNumer do
     numerify("#{mobile_phone_prefix}-####-####")
   end
 
-  @doc """
+  @doc"""
   국제 전화 번호를 반환
 
   ## 예제
@@ -63,7 +63,7 @@ defmodule Ffaker.KoKr.PhoneNumer do
     international(phone_number())
   end
 
-  @doc """
+  @doc"""
   국제 자택 전화 번호를 반환
 
   ## 예제
@@ -76,7 +76,7 @@ defmodule Ffaker.KoKr.PhoneNumer do
     international(home_phone_number())
   end
 
-  @doc """
+  @doc"""
   국제 휴대 전화 번호를 반환
 
   ## 예제

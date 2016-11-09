@@ -1,9 +1,8 @@
 defmodule Ffaker.En.LoremTest do
   use ExUnit.Case, async: true
+  use Ffaker
   import Ffaker.En.Lorem
-  import Ffaker.Matcher, only: [assert_match: 2, assert_in_file: 3]
-
-  @path "en/lorem"
+  import Ffaker.Matcher, only: [assert_match: 2]
 
   test "characters/1" do
     assert String.length(characters()) == 255
@@ -11,7 +10,7 @@ defmodule Ffaker.En.LoremTest do
   end
 
   test "word/0" do
-    assert_in_file(word(), "words", @path)
+    assert word() in ~F(words)
   end
 
   test "sentence/1" do

@@ -1,9 +1,8 @@
-defmodule Ffaker.EnUs.PhoneNumerTest do
+defmodule Ffaker.EnUs.PhoneNumberTest do
   use ExUnit.Case, async: true
-  import Ffaker.EnUs.PhoneNumer
-  import Ffaker.Matcher, only: [assert_match: 2, assert_in_file: 3]
-
-  @path "en_us/phone_number"
+  use Ffaker
+  import Ffaker.EnUs.PhoneNumber
+  import Ffaker.Matcher, only: [assert_match: 2]
 
   test "phone_number/0" do
     assert_match ~r/\A(?:1-)?\d{3}-\d{3}-\d{4}(?: x\d{3,5})?\z/, phone_number()
@@ -24,7 +23,7 @@ defmodule Ffaker.EnUs.PhoneNumerTest do
   end
 
   test "phone_calling_code/0" do
-    assert_in_file(phone_calling_code(), "phone_calling_codes", @path)
+    assert phone_calling_code() in ~F(phone_calling_codes)
   end
 
   test "imei/1" do

@@ -1,12 +1,12 @@
 defmodule Ffaker.En.Unit do
-  @moduledoc """
+  @moduledoc"""
   Functions for units in English
   """
 
   @time_units ~w(Years Days Hours Minutes Seconds Milliseconds)
   @temperature_units ~w(Kelvin Celsius Fahrenheit)
 
-  @doc """
+  @doc"""
   Returns time_unit
 
   ## Examples
@@ -19,7 +19,7 @@ defmodule Ffaker.En.Unit do
     Enum.random(@time_units)
   end
 
-  @doc """
+  @doc"""
   Returns temperature_unit
 
   ## Examples
@@ -32,7 +32,7 @@ defmodule Ffaker.En.Unit do
     Enum.random(@temperature_units)
   end
 
-  @doc """
+  @doc"""
   Returns temperature_abbr
 
   ## Examples

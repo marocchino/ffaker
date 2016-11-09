@@ -1,13 +1,11 @@
 defmodule Ffaker.KoKr.Job do
-  @moduledoc """
+  @moduledoc"""
   직업 데이터에 관한 함수가 들어있는 모듈
   """
 
-  import Ffaker, only: [list_file: 2]
+  use Ffaker
 
-  @path "ko_kr/job"
-
-  @doc """
+  @doc"""
   직업명을 반환
 
   ## Examples
@@ -17,6 +15,6 @@ defmodule Ffaker.KoKr.Job do
   """
   @spec title() :: String.t
   def title do
-    "titles" |> list_file(@path) |> Enum.random
+    Enum.random(~F(titles))
   end
 end

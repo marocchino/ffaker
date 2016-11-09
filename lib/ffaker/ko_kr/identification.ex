@@ -37,11 +37,10 @@ defmodule Ffaker.KoKr.Identification do
       string
       |> String.graphemes
       |> Enum.map(&String.to_integer/1)
-    checksum =
-      rem(
-          11 - rem(2 * a + 3 * b + 4 * c + 5 * d + 6 * e + 7 * f + 8 * g +
-                   9 * h + 2 * i + 3 * j + 4 * k + 5 * l,
-                   11),
-          10)
+    rem(
+        11 - rem(2 * a + 3 * b + 4 * c + 5 * d + 6 * e + 7 * f + 8 * g +
+                 9 * h + 2 * i + 3 * j + 4 * k + 5 * l,
+                 11),
+        10)
   end
 end

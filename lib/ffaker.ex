@@ -10,7 +10,7 @@ defmodule Ffaker do
           __MODULE__
           |> to_string
           |> Macro.underscore
-          |> String.replace(~r(elixir.ffaker|_test), "")
+          |> String.replace(~r(elixir.ffaker.|_test), "")
         Ffaker.list_file(file_name, path)
       end
     end

@@ -1,13 +1,12 @@
-defmodule Ffaker.EnUs.PhoneNumer do
-  @moduledoc """
-  Functions for US PhoneNumer data in English
+defmodule Ffaker.EnUs.PhoneNumber do
+  @moduledoc"""
+  Functions for US PhoneNumber data in English
   """
 
-  import Ffaker, only: [list_file: 2, numerify: 1]
+  use Ffaker
+  import Ffaker, only: [numerify: 1]
 
-  @path "en_us/phone_number"
-
-  @doc """
+  @doc"""
   Returns US phone_number
   https://en.wikipedia.org/wiki/List_of_North_American_Numbering_Plan_area_codes
 
@@ -23,7 +22,7 @@ defmodule Ffaker.EnUs.PhoneNumer do
     "#{prefix}#{short_phone_number()}#{suffix}"
   end
 
-  @doc """
+  @doc"""
   Returns US area_code
   https://en.wikipedia.org/wiki/List_of_North_American_Numbering_Plan_area_codes
 
@@ -39,7 +38,7 @@ defmodule Ffaker.EnUs.PhoneNumer do
     |> Enum.random
   end
 
-  @doc """
+  @doc"""
   Returns US exchange_code
   https://en.wikipedia.org/wiki/North_American_Numbering_Plan#Numbering_system
 
@@ -53,7 +52,7 @@ defmodule Ffaker.EnUs.PhoneNumer do
     Enum.random(201..999)
   end
 
-  @doc """
+  @doc"""
   Returns short US short_phone_number
 
   ## Examples
@@ -66,7 +65,7 @@ defmodule Ffaker.EnUs.PhoneNumer do
     "#{area_code()}-#{exchange_code()}-#{numerify("####")}"
   end
 
-  @doc """
+  @doc"""
   Returns short US phone_calling_code
 
   ## Examples
@@ -76,10 +75,10 @@ defmodule Ffaker.EnUs.PhoneNumer do
   """
   @spec phone_calling_code() :: String.t
   def phone_calling_code do
-    "phone_calling_codes" |> list_file(@path) |> Enum.random
+    Enum.random(~F(phone_calling_codes))
   end
 
-  @doc """
+  @doc"""
   Returns short US imei
 
   ## Examples

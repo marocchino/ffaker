@@ -1,13 +1,11 @@
 defmodule Ffaker.KoKr.Name do
-  @moduledoc """
+  @moduledoc"""
   이름 데이터에 관한 함수가 들어있는 모듈
   """
 
-  import Ffaker, only: [list_file: 2]
+  use Ffaker
 
-  @path "ko_kr/name"
-
-  @doc """
+  @doc"""
   공백이 들어간 전체 이름을 반환
 
   ## Examples
@@ -20,7 +18,7 @@ defmodule Ffaker.KoKr.Name do
     "#{last_name()} #{first_name()}"
   end
 
-  @doc """
+  @doc"""
   전체 이름을 반환
 
   ## Examples
@@ -33,7 +31,7 @@ defmodule Ffaker.KoKr.Name do
     "#{last_name()}#{first_name()}"
   end
 
-  @doc """
+  @doc"""
   이름을 반환
 
   ## Examples
@@ -46,7 +44,7 @@ defmodule Ffaker.KoKr.Name do
     Enum.random([female_first_name(), male_first_name()])
   end
 
-  @doc """
+  @doc"""
   남자 이름을 반환
 
   ## Examples
@@ -56,10 +54,10 @@ defmodule Ffaker.KoKr.Name do
   """
   @spec male_first_name() :: String.t
   def male_first_name do
-    "male_first_names" |> list_file(@path) |> Enum.random
+    Enum.random(~F(male_first_names))
   end
 
-  @doc """
+  @doc"""
   여자 이름을 반환
 
   ## Examples
@@ -69,10 +67,10 @@ defmodule Ffaker.KoKr.Name do
   """
   @spec female_first_name() :: String.t
   def female_first_name do
-    "female_first_names" |> list_file(@path) |> Enum.random
+    Enum.random(~F(female_first_names))
   end
 
-  @doc """
+  @doc"""
   성씨를 반환
 
   ## Examples
@@ -82,6 +80,6 @@ defmodule Ffaker.KoKr.Name do
   """
   @spec last_name() :: String.t
   def last_name do
-    "last_names" |> list_file(@path) |> Enum.random
+    Enum.random(~F(last_names))
   end
 end

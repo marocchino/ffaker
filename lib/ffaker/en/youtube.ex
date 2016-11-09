@@ -1,14 +1,13 @@
 defmodule Ffaker.En.Youtube do
-  @moduledoc """
+  @moduledoc"""
   Functions for Youtube url
   """
 
-  import Ffaker, only: [list_file: 2]
+  use Ffaker
 
   @colors ~w(female male unknown)
-  @path "en/youtube"
 
-  @doc """
+  @doc"""
   Returns url
 
   ## Examples
@@ -21,7 +20,7 @@ defmodule Ffaker.En.Youtube do
     "www.youtube.com/watch?v=#{video_id()}"
   end
 
-  @doc """
+  @doc"""
   Returns share url
 
   ## Examples
@@ -34,7 +33,7 @@ defmodule Ffaker.En.Youtube do
     "youtu.be/#{video_id()}"
   end
 
-  @doc """
+  @doc"""
   Returns embed url
 
   ## Examples
@@ -47,7 +46,7 @@ defmodule Ffaker.En.Youtube do
     "www.youtube.com/embed/#{video_id()}"
   end
 
-  @doc """
+  @doc"""
   Returns video id
 
   ## Examples
@@ -57,6 +56,6 @@ defmodule Ffaker.En.Youtube do
   """
   @spec video_id() :: String.t
   def video_id do
-    "video_ids" |> list_file(@path) |> Enum.random
+    Enum.random(~F(video_ids))
   end
 end

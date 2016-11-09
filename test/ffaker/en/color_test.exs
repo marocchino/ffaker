@@ -3,7 +3,6 @@ defmodule Ffaker.En.ColorTest do
   use Ffaker
   import Ffaker.En.Color
   import Ffaker.Matcher, only: [assert_match: 2]
-  @path "en/color"
 
   test "name/0" do
     assert name() in ~F(names)

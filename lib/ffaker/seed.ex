@@ -1,9 +1,9 @@
 defmodule Ffaker.Seed do
-  @moduledoc """
+  @moduledoc"""
   manage seed
   """
 
-  @doc """
+  @doc"""
   Init seed
 
   ## Examples
@@ -16,7 +16,7 @@ defmodule Ffaker.Seed do
     Keyword.get(ExUnit.configuration, :seed) || elem(:os.timestamp, 2)
   end
 
-  @doc """
+  @doc"""
   Reset seed
 
   ## Examples

@@ -1,13 +1,11 @@
 defmodule Ffaker.KoKr.Lorem do
-  @moduledoc """
+  @moduledoc"""
   에국가를 베이스로한 로렘 데이터에 관한 함수가 들어있는 모듈
   """
 
-  import Ffaker, only: [list_file: 2]
+  use Ffaker
 
-  @path "ko_kr/lorem"
-
-  @doc """
+  @doc"""
   단어를 반환
 
   ## Examples
@@ -17,10 +15,10 @@ defmodule Ffaker.KoKr.Lorem do
   """
   @spec word :: String.t
   def word do
-    "words" |> list_file(@path) |> Enum.random
+    Enum.random(~F(words))
   end
 
-  @doc """
+  @doc"""
   문장을 반환
 
   ## Parameters
@@ -39,7 +37,7 @@ defmodule Ffaker.KoKr.Lorem do
     (1..count |> Enum.map(fn(_) -> word() end) |> Enum.join(" ")) <> "."
   end
 
-  @doc """
+  @doc"""
   문단을 반환
 
   ## Parameters

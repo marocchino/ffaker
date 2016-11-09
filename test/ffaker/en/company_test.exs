@@ -1,8 +1,8 @@
 defmodule Ffaker.En.CompanyTest do
   use ExUnit.Case, async: true
+  use Ffaker
   import Ffaker.En.Company
-  import Ffaker.Matcher, only: [assert_match: 2, assert_in_file: 3]
-  @path "en/company"
+  import Ffaker.Matcher, only: [assert_match: 2]
 
   test "name/0" do
     assert_match ~r/\A[\w', -]+\z/, name()
@@ -25,6 +25,6 @@ defmodule Ffaker.En.CompanyTest do
   end
 
   test "position_area/0" do
-    assert_in_file(position_area(), "position_areas", @path)
+    assert position_area() in ~F(position_areas)
   end
 end

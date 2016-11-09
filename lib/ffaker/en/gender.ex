@@ -1,11 +1,11 @@
 defmodule Ffaker.En.Gender do
-  @moduledoc """
+  @moduledoc"""
   Functions for gender data in English
   """
 
   @genders ~w(female male unknown)
 
-  @doc """
+  @doc"""
   Returns gender
 
   ## Examples
@@ -18,7 +18,7 @@ defmodule Ffaker.En.Gender do
     Enum.random(@genders)
   end
 
-  @doc """
+  @doc"""
   Returns true if gender is female
 
   ## Examples
@@ -31,7 +31,7 @@ defmodule Ffaker.En.Gender do
     gender() == "female"
   end
 
-  @doc """
+  @doc"""
   Returns true if gender is male
 
   ## Examples
@@ -44,7 +44,7 @@ defmodule Ffaker.En.Gender do
     gender() == "male"
   end
 
-  @doc """
+  @doc"""
   Returns true if gender is unknown
 
   ## Examples

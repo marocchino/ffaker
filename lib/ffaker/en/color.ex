@@ -1,5 +1,5 @@
 defmodule Ffaker.En.Color do
-  @moduledoc """
+  @moduledoc"""
   Functions for color data in English
   """
 

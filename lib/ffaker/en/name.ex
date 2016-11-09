@@ -1,16 +1,15 @@
 defmodule Ffaker.En.Name do
-  @moduledoc """
+  @moduledoc"""
   Functions for name data in English
   """
 
-  import Ffaker, only: [list_file: 2]
+  use Ffaker
 
-  @path "en/name"
   @suffixes ~w(Jr. Sr. I II III IV V MD DDS PhD DVM)
   @female_prefixes ~w(Mrs. Miss.)
   @other_prefixes ~w(Ms. Dr.)
 
-  @doc """
+  @doc"""
   Returns name
 
   ## Examples
@@ -23,7 +22,7 @@ defmodule Ffaker.En.Name do
     "#{first_name()} #{last_name()}"
   end
 
-  @doc """
+  @doc"""
   Returns html safe name
 
   ## Examples
@@ -36,7 +35,7 @@ defmodule Ffaker.En.Name do
     "#{first_name()} #{html_safe_last_name()}"
   end
 
-  @doc """
+  @doc"""
   Returns first name
 
   ## Examples
@@ -49,7 +48,7 @@ defmodule Ffaker.En.Name do
     [female_first_name(), male_first_name()] |> Enum.random
   end
 
-  @doc """
+  @doc"""
   Returns male first name
 
   ## Examples
@@ -59,10 +58,10 @@ defmodule Ffaker.En.Name do
   """
   @spec male_first_name() :: String.t
   def male_first_name do
-    "male_first_names" |> list_file(@path) |> Enum.random
+    Enum.random(~F(male_first_names))
   end
 
-  @doc """
+  @doc"""
   Returns female first name
 
   ## Examples
@@ -72,10 +71,10 @@ defmodule Ffaker.En.Name do
   """
   @spec female_first_name() :: String.t
   def female_first_name do
-    "female_first_names" |> list_file(@path) |> Enum.random
+    Enum.random(~F(female_first_names))
   end
 
-  @doc """
+  @doc"""
   Returns last name
 
   ## Examples
@@ -85,10 +84,10 @@ defmodule Ffaker.En.Name do
   """
   @spec last_name() :: String.t
   def last_name do
-    "last_names" |> list_file(@path) |> Enum.random
+    Enum.random(~F(last_names))
   end
 
-  @doc """
+  @doc"""
   Returns html safe last name
 
   ## Examples
@@ -98,13 +97,12 @@ defmodule Ffaker.En.Name do
   """
   @spec html_safe_last_name() :: String.t
   def html_safe_last_name do
-    "last_names"
-    |> list_file(@path)
+    ~F(last_names)
     |> Enum.filter(&(not String.contains?(&1, "'")))
     |> Enum.random
   end
 
-  @doc """
+  @doc"""
   Returns prefix
 
   ## Examples
@@ -117,7 +115,7 @@ defmodule Ffaker.En.Name do
     [female_prefix(), male_prefix(), other_prefix()] |> Enum.random
   end
 
-  @doc """
+  @doc"""
   Returns male prefix
 
   ## Examples
@@ -130,7 +128,7 @@ defmodule Ffaker.En.Name do
     "Mr."
   end
 
-  @doc """
+  @doc"""
   Returns female prefix
 
   ## Examples
@@ -143,7 +141,7 @@ defmodule Ffaker.En.Name do
     Enum.random(@female_prefixes)
   end
 
-  @doc """
+  @doc"""
   Returns gender neutral prefix
 
   ## Examples
@@ -156,7 +154,7 @@ defmodule Ffaker.En.Name do
     Enum.random(@other_prefixes)
   end
 
-  @doc """
+  @doc"""
   Returns suffix
 
   ## Examples

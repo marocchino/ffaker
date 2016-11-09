@@ -1,5 +1,5 @@
 defmodule Ffaker.En.Internet do
-  @moduledoc """
+  @moduledoc"""
   Functions for internet data in English
   """
 
@@ -17,7 +17,7 @@ defmodule Ffaker.En.Internet do
   @safe_domain_suffixes ~w(org com net)
   @slug_delimiters ~w(- _ .)
 
-  @doc """
+  @doc"""
   Returns internet
 
   ## Examples
@@ -30,7 +30,7 @@ defmodule Ffaker.En.Internet do
     "#{user_name()}@#{Enum.random(@hosts )}"
   end
 
-  @doc """
+  @doc"""
   Returns internet
 
   ## Examples
@@ -43,7 +43,7 @@ defmodule Ffaker.En.Internet do
     "#{user_name()}@#{Enum.random(@disposable_hosts)}"
   end
 
-  @doc """
+  @doc"""
   Returns internet
 
   ## Examples
@@ -56,7 +56,7 @@ defmodule Ffaker.En.Internet do
     "#{user_name()}@#{Enum.random(@free_hosts)}"
   end
 
-  @doc """
+  @doc"""
   Returns internet
 
   ## Examples
@@ -69,7 +69,7 @@ defmodule Ffaker.En.Internet do
     "#{user_name()}@example.#{Enum.random(@safe_domain_suffixes)}"
   end
 
-  @doc """
+  @doc"""
   Returns user_name
 
   ## Examples
@@ -82,7 +82,7 @@ defmodule Ffaker.En.Internet do
     escape(Name.name)
   end
 
-  @doc """
+  @doc"""
   Returns domain_name
 
   ## Examples
@@ -95,7 +95,7 @@ defmodule Ffaker.En.Internet do
     "#{escape(Name.last_name)}#{Enum.random(@domain_suffixes)}"
   end
 
-  @doc """
+  @doc"""
   Returns uri
 
   ## Examples
@@ -108,7 +108,7 @@ defmodule Ffaker.En.Internet do
     "#{protocol}://#{domain_name()}"
   end
 
-  @doc """
+  @doc"""
   Returns ip_v4_address
 
   ## Examples
@@ -123,7 +123,7 @@ defmodule Ffaker.En.Internet do
     |> Enum.join(".")
   end
 
-  @doc """
+  @doc"""
   Returns slug
 
   ## Examples
@@ -144,7 +144,7 @@ defmodule Ffaker.En.Internet do
     |> String.replace(~r/\W/, glue)
   end
 
-  @doc """
+  @doc"""
   Returns password
 
   ## Examples
@@ -161,7 +161,7 @@ defmodule Ffaker.En.Internet do
 
   end
 
-  @doc """
+  @doc"""
   Returns mac
 
   ## Examples

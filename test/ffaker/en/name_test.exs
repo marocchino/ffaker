@@ -1,45 +1,41 @@
 defmodule Ffaker.En.NameTest do
   use ExUnit.Case, async: true
+  use Ffaker
   import Ffaker.En.Name
-  import Ffaker.Matcher, only: [assert_in_file: 3]
-  @path "en/name"
 
   test "name/0" do
     [first_name, last_name] = String.split(name(), " ")
 
-    assert_in_file(first_name,
-                   ["male_first_names", "female_first_names"], @path)
-    assert_in_file(last_name, "last_names", @path)
+    assert first_name in ~F(male_first_names) ++ ~F(female_first_names)
+    assert last_name in ~F(last_names)
   end
 
   test "html_safe_name/0" do
     [first_name, last_name] = String.split(html_safe_name(), " ")
-    assert_in_file(first_name,
-                   ["male_first_names", "female_first_names"], @path)
-    assert_in_file(last_name, "last_names", @path)
+    assert first_name in ~F(male_first_names) ++ ~F(female_first_names)
+    assert last_name in ~F(last_names)
     refute String.contains?(last_name, "'")
   end
 
   test "first_name/0" do
-    assert_in_file(first_name(),
-                   ["male_first_names", "female_first_names"], @path)
+    assert first_name() in ~F(male_first_names) ++ ~F(female_first_names)
   end
 
   test "male_first_name/0" do
-    assert_in_file(male_first_name(), "male_first_names", @path)
+    assert male_first_name() in ~F(male_first_names)
   end
 
   test "female_first_name/0" do
-    assert_in_file(female_first_name(), "female_first_names", @path)
+    assert female_first_name() in ~F(female_first_names)
   end
 
   test "last_name/0" do
-    assert_in_file(last_name(), "last_names", @path)
+    assert last_name() in ~F(last_names)
   end
 
   test "html_safe_last_name/0" do
     actual = html_safe_last_name()
-    assert_in_file(actual, "last_names", @path)
+    assert actual in ~F(last_names)
     refute String.contains?(actual, "'"), "#{actual} contains '"
   end
 

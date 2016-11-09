@@ -1,11 +1,11 @@
 defmodule Ffaker.KoKr.LoremTest do
   use ExUnit.Case, async: true
+  use Ffaker
   import Ffaker.KoKr.Lorem
-  import Ffaker.Matcher, only: [assert_match: 2, assert_in_file: 3]
-  @path "ko_kr/lorem"
+  import Ffaker.Matcher, only: [assert_match: 2]
 
   test "word/0" do
-    assert_in_file(word(), "words", @path)
+    assert word() in ~F(words)
   end
 
   test "sentence/1" do
