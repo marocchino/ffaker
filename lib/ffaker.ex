@@ -1,9 +1,9 @@
 defmodule Ffaker do
-  @moduledoc """
+  @moduledoc"""
   Common modules
   """
 
-  @doc """
+  @doc"""
   make list from file
 
   ## Parameters
@@ -28,7 +28,7 @@ defmodule Ffaker do
     end
   end
 
-  @doc """
+  @doc"""
   replace # with number
 
   ## Parameters
