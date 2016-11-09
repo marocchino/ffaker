@@ -14,7 +14,7 @@ The package can be installed as:
 
     ```elixir
     def deps do
-      [{:ffaker, "~> 0.0.1", only: [:test]}]
+      [{:ffaker, "~> 0.3.0", only: [:test]}]
     end
     ```
 
