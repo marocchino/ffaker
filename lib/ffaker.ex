@@ -3,6 +3,19 @@ defmodule Ffaker do
   Common modules
   """
 
+  defmacro __using__(_opts) do
+    quote do
+      defp sigil_F(file_name, _opts) do
+        path =
+          __MODULE__
+          |> to_string
+          |> Macro.underscore
+          |> String.replace(~r(elixir.ffaker|_test), "")
+        Ffaker.list_file(file_name, path)
+      end
+    end
+  end
+
   @doc"""
   make list from file
 

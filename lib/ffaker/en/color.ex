@@ -3,12 +3,11 @@ defmodule Ffaker.En.Color do
   Functions for color data in English
   """
 
-  import Ffaker, only: [list_file: 2]
+  use Ffaker
 
   @colors ~w(female male unknown)
-  @path "en/color"
 
-  @doc """
+  @doc"""
   Returns color name
 
   ## Examples
@@ -18,10 +17,10 @@ defmodule Ffaker.En.Color do
   """
   @spec name() :: String.t
   def name do
-    "names" |> list_file(@path) |> Enum.random
+    Enum.random(~F(names))
   end
 
-  @doc """
+  @doc"""
   Returns color hex code
 
   ## Examples
@@ -37,7 +36,7 @@ defmodule Ffaker.En.Color do
     |> String.pad_leading(6, "0")
   end
 
-  @doc """
+  @doc"""
   Returns rgb list
 
   ## Examples
@@ -50,7 +49,7 @@ defmodule Ffaker.En.Color do
     Enum.map(0..2, fn _ -> Enum.random(0..255) end)
   end
 
-  @doc """
+  @doc"""
   Returns hsl list
 
   ## Examples
@@ -65,7 +64,7 @@ defmodule Ffaker.En.Color do
     [h | sl]
   end
 
-  @doc """
+  @doc"""
   Returns rgba list
 
   ## Examples
@@ -78,7 +77,7 @@ defmodule Ffaker.En.Color do
     rgb() ++ [alpha()]
   end
 
-  @doc """
+  @doc"""
   Returns hsla list
 
   ## Examples
@@ -91,7 +90,7 @@ defmodule Ffaker.En.Color do
     hsl() ++ [alpha()]
   end
 
-  @doc """
+  @doc"""
   Returns alpha number
 
   ## Examples
