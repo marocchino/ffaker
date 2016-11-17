@@ -9,6 +9,6 @@ defmodule Ffaker.En.AirlineTest do
   end
 
   test "flight_number/0" do
-    assert_match ~r/[A-Z]{2} \d{1,4}\z/, flight_number()
+    assert_match ~r/[A-Z\d]{2} \d{1,4}\z/, flight_number()
   end
 end
