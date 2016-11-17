@@ -3,7 +3,7 @@ defmodule Ffaker.Mixfile do
 
   def project do
     [app: :ffaker,
-     version: "0.3.0",
+     version: "0.4.0",
      elixir: "~> 1.3",
      elixirc_paths: elixirc_paths(Mix.env),
      build_embedded: Mix.env == :prod,
