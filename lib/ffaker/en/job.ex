@@ -5,10 +5,6 @@ defmodule Ffaker.En.Job do
 
   use Ffaker
 
-  @suffixes ~w(Jr. Sr. I II III IV V MD DDS PhD DVM)
-  @female_prefixes ~w(Mrs. Miss.)
-  @other_prefixes ~w(Ms. Dr.)
-
   @doc"""
   Returns job title
 

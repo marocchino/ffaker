@@ -22,7 +22,7 @@ defmodule Ffaker.En.Company do
     first = Name.last_name
     second = Name.last_name
     last = Name.last_name
-    ["#{first} #{suffix}",
+    ["#{first} #{suffix()}",
      "#{first}-#{second}",
      "#{first}, #{second} and #{last}"]
     |> Enum.random

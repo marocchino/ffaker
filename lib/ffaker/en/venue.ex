@@ -5,8 +5,6 @@ defmodule Ffaker.En.Venue do
 
   use Ffaker
 
-  @colors ~w(female male unknown)
-
   @doc"""
   Returns venue
 

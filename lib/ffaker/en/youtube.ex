@@ -5,8 +5,6 @@ defmodule Ffaker.En.Youtube do
 
   use Ffaker
 
-  @colors ~w(female male unknown)
-
   @doc"""
   Returns url
 

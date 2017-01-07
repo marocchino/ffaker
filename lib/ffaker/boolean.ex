@@ -9,7 +9,7 @@ defmodule Ffaker.Boolean do
   ## Examples
 
       iex> Ffaker.Boolean.maybe
-      "m4.2xlarge"
+      true
   """
   @spec maybe() :: true | false
   def maybe do

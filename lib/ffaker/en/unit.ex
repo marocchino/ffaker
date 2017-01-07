@@ -42,6 +42,6 @@ defmodule Ffaker.En.Unit do
   """
   @spec temperature_abbr() :: String.t
   def temperature_abbr do
-    String.at(temperature_unit, 0)
+    String.at(temperature_unit(), 0)
   end
 end

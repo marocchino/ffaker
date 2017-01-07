@@ -5,8 +5,6 @@ defmodule Ffaker.En.Color do
 
   use Ffaker
 
-  @colors ~w(female male unknown)
-
   @doc"""
   Returns color name
 

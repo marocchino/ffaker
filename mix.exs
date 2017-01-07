@@ -21,6 +21,7 @@ defmodule Ffaker.Mixfile do
   end
 
   def aliases do
+    # []
     ["test": ["credo --strict", "test"]]
   end
 
