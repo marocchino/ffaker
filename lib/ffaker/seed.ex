@@ -1,6 +1,6 @@
 defmodule Ffaker.Seed do
   @moduledoc"""
-  manage seed
+  Manage seed
   """
 
   @doc"""
@@ -32,7 +32,7 @@ defmodule Ffaker.Seed do
       iex> Enum.Random(1..10)
       7
   """
-  @spec seed() :: :rand.state()
+  @spec reset() :: :rand.state()
   def reset do
     s = seed()
     :rand.seed(:exs1024, {s, s, s})

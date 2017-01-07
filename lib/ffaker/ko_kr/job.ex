@@ -11,7 +11,7 @@ defmodule Ffaker.KoKr.Job do
   ## Examples
 
       iex> Ffaker.KoKr.Job.title
-      "프로그레머"
+      "프로그래머"
   """
   @spec title() :: String.t
   def title do

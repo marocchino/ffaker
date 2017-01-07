@@ -19,7 +19,7 @@ defmodule Ffaker.En.Airline do
   end
 
   @doc"""
-  Returns flight_number
+  Returns flight number
 
   ## Examples
 

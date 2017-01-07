@@ -1,6 +1,6 @@
 defmodule Ffaker.KoKr.Lorem do
   @moduledoc"""
-  에국가를 베이스로한 로렘 데이터에 관한 함수가 들어있는 모듈
+  애국가를 베이스로 하는 로렘 데이터에 관한 함수가 들어있는 모듈
   """
 
   use Ffaker
@@ -23,7 +23,7 @@ defmodule Ffaker.KoKr.Lorem do
 
   ## Parameters
 
-    - words_range: 문장이 포함할 단어 수의 범위를 지정
+    - words_range: 문장이 포함할 단어 수의 범위를 지정.
       기본 값은 `4..8`
 
   ## Examples
@@ -42,7 +42,7 @@ defmodule Ffaker.KoKr.Lorem do
 
   ## Parameters
 
-    - sentences_range: 문단이 포함할 문장의 수를 지정
+    - sentences_range: 문단이 포함할 문장의 수를 지정.
       기본 값은 `3..6`
 
   ## Examples

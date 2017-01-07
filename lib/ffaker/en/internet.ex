@@ -18,7 +18,7 @@ defmodule Ffaker.En.Internet do
   @slug_delimiters ~w(- _ .)
 
   @doc"""
-  Returns internet
+  Returns email
 
   ## Examples
 
@@ -31,7 +31,7 @@ defmodule Ffaker.En.Internet do
   end
 
   @doc"""
-  Returns internet
+  Returns disposable email
 
   ## Examples
 
@@ -44,11 +44,11 @@ defmodule Ffaker.En.Internet do
   end
 
   @doc"""
-  Returns internet
+  Returns free email
 
   ## Examples
 
-      iex> Ffaker.En.Internet.disposable_email
+      iex> Ffaker.En.Internet.free_email
       "dustin.oberbrunner@gmail.com"
   """
   @spec free_email() :: String.t
@@ -57,11 +57,11 @@ defmodule Ffaker.En.Internet do
   end
 
   @doc"""
-  Returns internet
+  Returns safe email
 
   ## Examples
 
-      iex> Ffaker.En.Internet.disposable_email
+      iex> Ffaker.En.Internet.safe_email
       "dustin.oberbrunner@example.com"
   """
   @spec safe_email() :: String.t
@@ -70,7 +70,7 @@ defmodule Ffaker.En.Internet do
   end
 
   @doc"""
-  Returns user_name
+  Returns user name
 
   ## Examples
 
@@ -83,7 +83,7 @@ defmodule Ffaker.En.Internet do
   end
 
   @doc"""
-  Returns domain_name
+  Returns domain name
 
   ## Examples
 
