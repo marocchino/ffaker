@@ -11,7 +11,7 @@ defmodule Ffaker.EnUs.Address do
   @sec_addrs [" Apt. ###", " Suite ###", ""]
 
   @doc"""
-  Returns zip_code
+  Returns zip code
 
   ## Examples
 
@@ -85,7 +85,7 @@ defmodule Ffaker.EnUs.Address do
   end
 
   @doc"""
-  Returns state_abbr
+  Returns state abbr
 
   ## Examples
 
@@ -98,7 +98,7 @@ defmodule Ffaker.EnUs.Address do
   end
 
   @doc"""
-  Returns state_and_territory_abbr
+  Returns state and territory abbr
 
   ## Examples
 
@@ -126,7 +126,7 @@ defmodule Ffaker.EnUs.Address do
   end
 
   @doc"""
-  Returns state abbr except HI and AK
+  Returns state abbr except Hawaii and Alaska
 
   ## Examples
 

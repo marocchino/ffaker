@@ -1,6 +1,6 @@
 defmodule Ffaker.KoKr.Address do
   @moduledoc"""
-  주소 데이터에 관함 함수가 들어있는 모듈
+  주소 데이터에 관한 함수가 들어있는 모듈
   """
 
   use Ffaker

@@ -1,6 +1,6 @@
 defmodule Ffaker.KoKr.Gender do
   @moduledoc"""
-  성별 데이터에 관함 함수가 들어있는 모듈
+  성별 데이터에 관한 함수가 들어있는 모듈
   """
 
   @genders ~w(남 여)

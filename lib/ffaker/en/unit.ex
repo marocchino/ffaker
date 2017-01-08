@@ -7,7 +7,7 @@ defmodule Ffaker.En.Unit do
   @temperature_units ~w(Kelvin Celsius Fahrenheit)
 
   @doc"""
-  Returns time_unit
+  Returns time unit
 
   ## Examples
 
@@ -20,7 +20,7 @@ defmodule Ffaker.En.Unit do
   end
 
   @doc"""
-  Returns temperature_unit
+  Returns temperature unit
 
   ## Examples
 
@@ -33,7 +33,7 @@ defmodule Ffaker.En.Unit do
   end
 
   @doc"""
-  Returns temperature_abbr
+  Returns temperature abbr
 
   ## Examples
 

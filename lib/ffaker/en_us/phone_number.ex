@@ -7,7 +7,7 @@ defmodule Ffaker.EnUs.PhoneNumber do
   import Ffaker, only: [numerify: 1]
 
   @doc"""
-  Returns US phone_number
+  Returns US phone number
   https://en.wikipedia.org/wiki/List_of_North_American_Numbering_Plan_area_codes
 
   ## Examples
@@ -23,7 +23,7 @@ defmodule Ffaker.EnUs.PhoneNumber do
   end
 
   @doc"""
-  Returns US area_code
+  Returns US area code
   https://en.wikipedia.org/wiki/List_of_North_American_Numbering_Plan_area_codes
 
   ## Examples
@@ -39,7 +39,7 @@ defmodule Ffaker.EnUs.PhoneNumber do
   end
 
   @doc"""
-  Returns US exchange_code
+  Returns US exchange code
   https://en.wikipedia.org/wiki/North_American_Numbering_Plan#Numbering_system
 
   ## Examples
@@ -53,7 +53,7 @@ defmodule Ffaker.EnUs.PhoneNumber do
   end
 
   @doc"""
-  Returns short US short_phone_number
+  Returns short US short phone number
 
   ## Examples
 
@@ -66,7 +66,7 @@ defmodule Ffaker.EnUs.PhoneNumber do
   end
 
   @doc"""
-  Returns short US phone_calling_code
+  Returns US phone calling code
 
   ## Examples
 
@@ -79,7 +79,7 @@ defmodule Ffaker.EnUs.PhoneNumber do
   end
 
   @doc"""
-  Returns short US imei
+  Returns US imei
 
   ## Examples
 

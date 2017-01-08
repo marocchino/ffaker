@@ -32,7 +32,7 @@ defmodule Ffaker.En.Aws do
   end
 
   @doc"""
-  Returns aws offering type
+  Returns aws instance tenancy
 
   ## Examples
 
@@ -45,7 +45,7 @@ defmodule Ffaker.En.Aws do
   end
 
   @doc"""
-  Returns aws offering type
+  Returns aws product description
 
   ## Examples
 

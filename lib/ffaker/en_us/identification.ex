@@ -10,7 +10,7 @@ defmodule Ffaker.EnUs.Identification do
                 "Prefer not to respond"]
 
   @doc"""
-  Returns US drivers_license
+  Returns US drivers license
 
   ## Examples
 
@@ -23,7 +23,7 @@ defmodule Ffaker.EnUs.Identification do
   end
 
   @doc"""
-  Returns US ssn
+  Returns US social security number
 
   ## Examples
 
