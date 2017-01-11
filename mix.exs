@@ -21,8 +21,7 @@ defmodule Ffaker.Mixfile do
   end
 
   def aliases do
-    # []
-    ["test": ["credo --strict", "test"]]
+    []
   end
 
   defp elixirc_paths(:test), do: ["lib", "test/support"]
